@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- MISMAS HOJAS Y FUENTES -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./mediaquaries.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap" rel="stylesheet"/>
+
+  <!-- i18next CDN -->
+  <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
+
+  <title data-i18n="contact.title"></title>
+</head>
+
+<body>
+<!-- ███ NAVBAR (idéntica) ███ -->
+<header>
+  <nav>
+    <div class="logo">
+      <span data-i18n="brand.part1"></span><span data-i18n="brand.part2"></span>
+    </div>
+
+    <div class="burgar" onclick="toggleNav()">&#9776;</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"  data-i18n="nav.home"></a></li>
+      <li><a href="contact.html" data-i18n="nav.contact"></a></li>
+      <li><a href="availability.html" data-i18n="nav.availability"></a></li>
+    </ul>
+
+    <div class="btn">
+      <a class="sign_up" href="#contactForm" data-i18n="btn.contact"></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ███ HERO · FORMULARIO EN LA IMAGEN ███ -->
+<section class="section_1" id="contactForm">
+  <form id="leadForm" class="modal__form hero-form reveal">
+    <h2 class="hero-form__title" data-i18n="contact.formTitle"></h2>
+
+    <label data-i18n="popup.nameLabel"></label>
+    <input type="text" name="name" required>
+
+    <label data-i18n="popup.emailLabel"></label>
+    <input type="email" name="email" required>
+
+    <label data-i18n="popup.phoneLabel"></label>
+    <input type="tel" name="phone" required>
+
+    <label data-i18n="popup.msgLabel"></label>
+    <textarea name="message" rows="4"
+              data-i18n-placeholder="popup.msgPlaceholder"></textarea>
+
+    <button type="submit" class="modal__send"
+            data-i18n="popup.send"></button>
+  </form>
+</section>
+
+
+<!-- ███ INFORMACIÓN DE CONTACTO (opcional) ███ -->
+<section class="section_3">
+  <div class="service-header reveal">
+    <h1 data-i18n="contact.infoTitle"></h1>
+    <p  data-i18n="contact.infoText"></p>
+  </div>
+</section>
+
+<!-- ███ FOOTER (idéntico) ███ -->
+<footer>
+  <p data-i18n="footer.contact"></p>
+  <p>
+    <span data-i18n="footer.follow"></span><br>
+    <i class="fa-brands fa-facebook"></i>&nbsp;
+    <i class="fa-brands fa-square-x-twitter"></i>&nbsp;
+    <i class="fa-brands fa-square-instagram"></i>&nbsp;
+    <i class="fa-brands fa-linkedin"></i>
+  </p>
+  <p class="footer-text1" data-i18n="footer.copyright"></p>
+  <p class="footer-text1" data-i18n="footer.developer"></p>
+</footer>
+
+<!-- i18next init + scroll reveal + pop-up JS de index -->
+<script src="./app.js"></script>
+<script>
+  // misma inicialización i18next que en index.html
+  function renderPage(){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      el.innerHTML = i18next.t(el.dataset.i18n);
+    });
+    // placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+      el.placeholder = i18next.t(el.dataset.i18nPlaceholder);
+    });
+  }
+  i18next.use(i18nextHttpBackend).use(i18nextBrowserLanguageDetector).init({
+    fallbackLng:'es',
+    load:'languageOnly',
+    backend:{loadPath:'langs/{{lng}}.json'}
+  },renderPage);
+  i18next.on('languageChanged',renderPage);
+</script>
+</body>
+</html>

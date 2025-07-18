@@ -1,0 +1,726 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "manrope", sans-serif;
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+  background-color: #F4EBDD;
+}
+/* Navbar styling */
+header {
+  background-color: #F4EBDD;
+  padding: 2rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5C4033;
+  margin-right: 15rem;
+  margin-left: 5rem;
+}
+.burgar {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5C4033;
+  display: none;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding-left: 5rem;
+}
+.nav-links li {
+  margin-right: 3rem;
+  text-decoration: none;
+  color: #5C4033;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+/* estado normal y visitado */
+.nav-links a,
+.nav-links a:visited,
+.btn .sign_up,
+.btn .sign_up:visited {
+  color: #5C4033;       /* tu marrón original */
+  text-decoration: none;/* sin subrayado       */
+}
+
+/* al pasar el ratón: ligero “fade” opcional */
+.nav-links a:hover,
+.btn .sign_up:hover {
+  opacity: .8;          /* o cambia color si lo prefieres */
+}
+
+/* al pulsar: sin cambios de fondo/outline azul */
+.nav-links a:active,
+.btn .sign_up:active {
+  color: #5C4033;
+  outline: none;
+}
+.btn {
+  margin-left: 8rem;
+  transition: 0.5s all ease;
+}
+.btn a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn :first-child {
+  transform: scale(1.05);
+}
+.btn :first-child {
+  background-color: #5C4033;
+  color: #F4EBDD;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-right: 2rem;
+}
+.btn :last-child {
+  border: 2px solid #5C4033;
+  color: #F4EBDD;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-right: 2rem;
+}
+/* Navbar section stop */
+
+/* Hero section styling */
+.section_1 {
+  position: relative;
+  background-image: url("images/home.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 120vh;
+  width: 100%;
+  max-width: 100%;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section_1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+.bg_text1,
+.bg_text2 {
+  color: #F4EBDD;
+  text-shadow: 2px 2px 6px #5C4033;
+
+}
+.bg_div {
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #F4EBDD;
+  padding-top: 240px;
+}
+.bg_div :first-child {
+  font-size: 5rem;
+  animation: slideinBottom 2s ease;
+}
+
+.bg_div :last-child {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  animation: slideinBottom 4s ease;
+}
+@keyframes slideinBottom {
+  0% {
+    transform: translatey(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+
+.reveal {                 /* estado inicial */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.reveal.is-visible {      /* cuando entra en pantalla */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*───────────────────────────────────────────────
+  BLOQUE IMAGEN + TEXTO  (FULL WIDTH, ESTILO PREMIUM)
+───────────────────────────────────────────────*/
+.img-text {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--gap, 7rem);          /* más aire entre img y texto */
+
+  /* Dimensiones */
+  width: 100%;
+  margin-block: 4rem;             /* más respiro con secciones vecinas */
+  padding: var(--padding, 2.5rem 3rem);
+
+  /* Fondo + efecto tarjeta */
+  background: #F4EBDD;
+  border-radius: 12px;
+}
+
+/* Imagen a la derecha */
+.img-text--reverse { flex-direction: row-reverse; }
+
+/*──────── Imagen ────────*/
+.img-text__img {
+  flex: 0 0 var(--img-basis, 42%);
+  max-width: var(--img-max, 580px);
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/*──────── Contenido ────────*/
+.img-text__body {
+  flex: 1;
+  /* Interlineado y anchura máxima del texto para legibilidad */
+  line-height: var(--line, 1.9);
+  max-width: 800px;
+  text-align: var(--align, left);
+}
+
+/* Título del bloque imagen-texto */
+.img-text__title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #5C4033;
+  padding-top: 40px;
+}
+
+/* ➋  Cuando el observer agregue .is-visible */
+.img-text__title.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Subtítulo opcional */
+.img-text__subtitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0 0 0.8rem;
+  color: #5C4033;
+}
+
+/* ▸ LISTA SIN VIÑETA NATIVA + ESPACIADO PERSONALIZADO */
+.img-text__list {
+  list-style: none;       /* ⬅️   elimina los puntos negros */
+  padding: 0;             /* reiniciamos sangría del <ul>   */
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  color: #5C4033;
+}
+
+.img-text__list li {
+  position: relative;
+  padding-left: 1.8rem;   /* ⬅️  distancia texto-icono (ajusta aquí) */
+  margin-bottom: 0.45rem;
+  color: #5C4033;
+  font-size: 2.0rem;        /* escala real; subiste antes a 1.95 rem   */
+}
+
+/* viñeta “▹” personalizada */
+.img-text__list li::before {
+  content: "▹";
+  color: #c08f5c;
+  font-weight: 700;
+  position: absolute;
+  left: 0;                /* arranca en el borde del li      */
+  top: 0.05em;            /* corrige alineación vertical opc. */
+  font-size: 1.8rem;      /* tamaño del icono (ajusta libre) */
+}
+
+/* Párrafos finales */
+.img-text__paragraph {
+  margin-block: 1rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #5C4033;
+}
+
+/* Hero section stop */
+
+.section_3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  background-color: #F4EBDD;
+}
+.service-header {
+  text-align: center;
+  width: 80%;
+  line-height: 1.6;
+  max-width: none;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.service-header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #5C4033;
+  padding-top: 40px;
+}
+.service-header h2 {
+  font-size: 1.7rem;
+  padding-top: 15px;
+  color: #3d3b3b;
+}
+.service-header p {
+  font-size: 1.7rem;
+  padding-top: 10px;
+  margin-bottom: 7rem;
+  color: #666;
+}
+.flex {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.section3_div1 {
+  background-color: #F4EBDD;
+  height: auto;
+  width: 200px;
+  padding-bottom: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease;
+}
+.section3_div1:hover {
+  transform: scale(1.05);
+}
+.font {
+  font-size: 3rem;
+  padding: 2rem 1rem;
+}
+.buy {
+  font-size: 2rem;
+  padding: 0 1rem;
+  color: #5C4033;
+}
+.expert {
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+.learn_more {
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 2rem 1rem;
+  font-weight: bold;
+  color: #5C4033;
+}
+/* service section end */
+
+/* blog section  styling*/
+.section_2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  padding-bottom: 10rem;
+  background-color: #F4EBDD;
+}
+.blog-header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+.blog-header h1 {
+  padding-top: 8rem;
+  font-size: 3rem;
+  color: #5C4033;
+  line-height: 1.6;
+  font-weight: 900;
+}
+.blog-header p {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #5C4033;
+  line-height: 2;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+.blog-gallary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  column-gap: 26px;
+}
+.section2_div1 {
+  background-color: #F4EBDD;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  height: auto;
+  padding-bottom: 2rem;
+  transition: all 0.7s ease;
+}
+.section2_div1:hover {
+  transform: scale(1.05);
+}
+.section2_div1 img {
+  width: 100%;
+  max-width: 350px;
+}
+.div_details {
+  padding: 2rem;
+  line-height: 1.6;
+}
+.div_details h2 {
+  color: #5C4033;
+  font-size: 2rem;
+}
+.div_details p {
+  color: rgb(129, 128, 128);
+  font-size: 1.5rem;
+}
+.div_details button {
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  color: #5C4033;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: #F4EBDD;
+  border: 2px solid #5C4033;
+}
+/* Blog styling stop */
+
+/* blog section stop*/
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  padding-bottom: 3rem;
+  background-color: #2F4F4F;
+  color: #ddd;
+}
+footer :nth-child(1) {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+footer :nth-child(2) {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.footer-text1 {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+/* ---------- Modal base ---------- */
+.modal {
+  position: fixed;
+  inset: 0;                      /* top, right, bottom, left = 0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;            /* oculto por defecto */
+  opacity: 0;
+  transition: opacity .4s ease;
+  z-index: 9999;
+}
+
+/* ---------- Overlay semitransparente ---------- */
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+}
+
+/* ---------- Caja central ---------- */
+.modal__box {
+  position: relative;
+  background: #F4EBDD;
+  padding: 3rem 2.5rem;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  z-index: 1;
+  text-align: center;
+}
+
+.modal__title  { font-size: 2.2rem; color:#5C4033; margin-bottom:2rem; }
+.modal__form   { display:flex; flex-direction:column; gap:1.2rem; }
+.modal__form label  { font-size:1.4rem; color:#5C4033; display:flex; flex-direction:column; gap:.4rem; }
+.modal__form input,
+.modal__form textarea {
+  padding:.8rem 1rem;
+  border:2px solid #5C4033;
+  border-radius:8px;
+  font-size:1.4rem;
+  background:#fff;
+}
+.modal__send {
+  background:#5C4033;
+  color:#F4EBDD;
+  padding:1rem 2rem;
+  border:none;
+  border-radius:20px;
+  font-size:1.6rem;
+  cursor:pointer;
+  transition: transform .15s ease;
+}
+.modal__close {
+  position:absolute;
+  top:.6rem; right:.6rem;
+  background:none; border:none;
+  font-size:2.4rem; color:#5C4033;
+  cursor:pointer;
+  transition: transform .15s ease;
+}
+
+.modal__send:active,
+.modal__close:active {
+  transform: scale(.92);     /* se encoge un poco al hacer clic */
+}
+
+/* ---------- Estado visible ---------- */
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__paragraph {
+  font-size: 1.7rem;   /* antes 1.4 rem */
+  line-height: 1.6;    /* un poco más de aire */
+}
+
+/*────────────────────────────────────────────
+  FORMULARIO EN HERO (sin tarjeta)
+  ─ Pon tu estilo tocando las variables
+────────────────────────────────────────────*/
+.hero-form {
+  z-index: 2;                    /* ahora sí está por encima */
+  width: min(92%, 480px);
+  max-width: 420px;              /* ❸ margen fijo, más fácil de centrar */
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+/*──────── Título ────────*/
+.hero-form__title {
+  font-size: 2.9rem;        /* ← TAMAÑO de fuente del título   */
+  font-weight: 700;
+  color: #F4EBDD;           /* ← COLOR del título              */
+  text-shadow: 2px 2px 6px #5C4033;
+  margin: 0 0 1.2rem;
+  text-align: center;
+}
+
+/*──────── Campos ────────*/
+:root {
+  /* Colores y tamaños que puedes cambiar cómodamente */
+  --field-bg : rgba(255, 255, 255, 0.85);  /* fondo de los campos            */
+  --field-text : #4c362a;  /* color del texto del usuario    */
+  --field-bord : #c08f5c;  /* color del borde                */
+  --field-size : 1.55rem;  /* tamaño de fuente en los campos */
+}
+
+.hero-form input,
+.hero-form textarea {
+  background   : var(--field-bg);
+  color        : var(--field-text);
+  border       : 2px solid var(--field-bord);
+  border-radius: 8px;
+  padding      : 1rem 1.2rem;
+  font-size    : var(--field-size);
+  width        : 100%;
+}
+
+/*──────── Botón (ya hereda .modal__send) ────────*/
+.hero-form .modal__send {
+  background: #5C4033;      /* cambia aquí si quieres otro color */
+}
+
+.hero-form label {
+  font-size: 1.8rem;      /* ← TAMAÑO de letra  (ajústalo)  */
+  color: #F4EBDD;         /* ← COLOR del texto (cámbialo)   */
+  font-weight: 600;       /* opcional: negrita              */
+  text-shadow: 1px 1px 3px #5C4033; /* opcional: sombra sutil */
+}
+
+
+#avail-img{ 
+  max-width:100%;
+   height:auto;
+    display:block;
+}
+
+.section_1--availability{
+  background-image: none;
+  background-color: #F4EBDD;
+}
+
+.section_1--availability::before{
+  background: none;                /* quita la sombra */
+}
+/*──────────────────────────────────────────
+  Cabecera de los planos (Bloque A, B, …)
+  — Sin tocar la animación existente —
+──────────────────────────────────────────*/
+.section_1--availability .bg_div{
+  /* misma mecánica ⤵  (centro X -50 / -50)  */
+  top: 12%;                     /* súbelo; prueba 8-15 % a tu gusto   */
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding-top: 0;               /* quita el “relleno” de 240 px       */
+
+}
+
+/* solo cambia el color del texto */
+.section_1--availability .bg_text1,
+.section_1--availability .bg_text2{
+  color: #5C4033;
+}
+
+area:focus{
+  outline:2px solid #2F4F4F;   /* mismo tono que el trazo Mapster */
+  outline-offset:-2px;         /* que se funda con el stroke del plugin */
+}
+
+/*──────────────────────────────────────────────
+  CONTENEDOR PRINCIPAL
+──────────────────────────────────────────────*/
+.plan-container{
+  display:flex;                 /* por si añades algo a la derecha */
+  justify-content:center;       /* centra la caja del plano        */
+}
+
+/*──────────────────────────────────────────────
+  ① Caja del plano y títulos
+──────────────────────────────────────────────*/
+.plan-box{
+  position:relative;            /* referencia para elementos absolutos */
+  display:inline-block;         /* se adapta al tamaño del plano       */
+}
+.plan-box img{ width:100%; height:auto; }
+
+/* Títulos (ya los tenías) */
+.plan-box .bg_div{
+  position:absolute;
+  left:50%; top:12%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+.bg_text1, .bg_text2{ color:#F4EBDD; }
+
+/*──────────────────────────────────────────────
+  ② Bloque de texto plano (no empuja a nadie)
+──────────────────────────────────────────────*/
+/* ─────────  Bloque de datos más grande  ───────── */
+.info-text{
+  position:absolute;
+  left:-380px;            /* ancho y desplazamiento algo mayores          */
+  top:12%;
+  width:360px;           /* +40 px sobre el original                      */
+  font-size:2rem;    /* antes era implícitamente 1rem → +12,5 %       */
+  line-height:1.85;      /* separa un poco más las líneas                 */
+  color:#4c362a;
+}
+
+.info-text h3{
+  margin:.2rem 0 .7rem;
+  font-size:2rem;       /* antes heredaba ≈1.6 rem */
+  color:#5C4033;
+}
+
+.info-text li{
+  font-size:2rem;    /* sube cada línea un 10-15 % */
+  line-height:1.55;     /* mantiene la separación */
+}
+
+/* lista */
+.info-text ul{
+  margin:.5rem 0 1.1rem;
+  padding-left:1.4rem;   /* un pelín más de sangría                        */
+  font-size:2rem;     /* antes heredaba ≈1.125 → apenas +2 px visuales */
+}
+
+.info-text .estado-disponible{color:#4B9B4B;font-weight:700}
+.info-text .estado-reservado {color:#C08F5C;font-weight:700}
+.info-text .estado-vendido   {color:#B63E3E;font-weight:700;text-decoration:line-through}
+
+
+/*──────────────────────────────────────────────
+  ③ Adaptación móvil: texto debajo del plano
+──────────────────────────────────────────────*/
+@media (max-width: 900px){
+  /* ① la caja lateral desaparece y todo vuelve al flujo */
+  .info-text{
+    position:static;       /* sale del absoluto */
+    width:auto;
+    margin:1.5rem 0 0;     /* separación inferior del plano */
+    left:auto; top:auto;   /* por si el navegador conserva valores */
+  }
+
+  /* ② centramos el bloque completo para que no quede pegado a los bordes */
+  .plan-container{
+    justify-content:center;
+    padding:0 1rem;        /* respiración lateral */
+  }
+
+  /* ③ los títulos sobre el plano bajan un poco para no tapar la parte alta */
+  .plan-box .bg_div{
+    top:16%;
+  }
+}

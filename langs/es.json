@@ -1,0 +1,101 @@
+{
+  "title": "Balcones del Pinillo",
+  "brand": {
+    "part1": "Balcones del ",
+    "part2": "Pinillo"
+  },
+  "nav": {
+    "home": "Inicio",
+    "contact": "Contacto",
+    "availability": "Disponibilidad"
+  },
+  "btn": {
+    "contact": "Contactar"
+  },
+  "hero": {
+    "welcome": "Un refugio entre el mar y la luz",
+    "tagline": "Viviendas de obra nueva en Torremolinos: elegancia mediterránea con alma propia"
+  },
+  "services": {
+    "title": "Balcones del Pinillo ofrece un concepto de vivienda donde la luz, el espacio y el diseño se integran con equilibrio. Arquitectura moderna, líneas limpias y grandes terrazas abiertas al paisaje definen este proyecto exclusivo.",
+    "subtitle": "",
+    "description": "",
+    "buy": {
+      "title": "Comprar",
+      "text": "Nuestro equipo experto te guiará…"
+    },
+    "learnMore": "Saber más ❯"
+  },
+  "blog": {
+    "title": "Encuentra tu hogar ideal",
+    "subtitle": "Además, contarás con todas las comodidades a tu alcance: supermercados, colegios, centros médicos, farmacias, gimnasios y una amplia oferta de bares, restaurantes y zonas de ocio. Todo ello en un entorno vivo y consolidado, donde disfrutar de una vida cómoda sin renunciar a la tranquilidad.\nTorremolinos es una localidad abierta, diversa y cosmopolita, que acoge con naturalidad diferentes estilos de vida. Aquí, la libertad y el bienestar se viven sin etiquetas.\nIdeal como primera residencia o como refugio vacacional para quienes buscan más que una casa: un lugar donde sentirse realmente en casa.",
+    "card1": {
+      "title": "Salón",
+      "location": "Ikoyi Lagos",
+      "type": "Vivienda múltiple"
+    },
+    "viewDetails": "Ver detalles"
+  },
+  "footer": {
+    "contact": "Contáctanos: info@blancareal.com",
+    "follow": "Síguenos",
+    "copyright": "©2024 | Todos los derechos reservados",
+    "developer": "Desarrollado por Marketing BlancaReal"
+  },
+  "project": {
+    "imgAlt": "Interior de cocina en el proyecto residencial de Torremolinos",
+    "description": "Este exclusivo proyecto residencial en Torremolinos redefine el lujo contemporáneo, integrando arquitectura, entorno natural y estilo de vida en una de las zonas más vibrantes y consolidadas de la Costa del Sol. A solo 500 m de la playa de la Carihuela y del puerto deportivo de Benalmádena, ofrece un hogar elegante con vistas al mar para quienes buscan calidad y privacidad.",
+    "featuresTitle": "Características principales:",
+    "features": {
+      "homes": "20 viviendas premium en dos bloques independientes",
+      "seaViews": "Vistas al mar desde la mayoría de las viviendas",
+      "terraces": "Grandes terrazas (mín. 15 m²; hasta 60 m² con jacuzzi en áticos)",
+      "livingRooms": "Salones integrados y espacios llenos de luz natural",
+      "amenities": "Piscina, zonas verdes y posible gimnasio o usos múltiples",
+      "parking": "40 plazas de garaje en una sola planta para mayor comodidad"
+    },
+    "locationAdvantages": "Viviendas únicas de 2, 3 y 4 dormitorios con acabados de alta calidad, zonas comunes con piscina, jardines, gimnasio y garaje privado. Todo pensado para quienes valoran la comodidad, la estética y una vida sin prisas."
+  },
+  "popup": {
+    "title":            "¿Te interesa el proyecto?",
+    "nameLabel":        "Nombre",
+    "emailLabel":       "Email",
+    "phoneLabel":       "Teléfono",
+    "msgLabel":         "Mensaje",
+    "msgPlaceholder":   "Quiero más información…",
+    "send":             "Enviar",
+    "thanksTitle": "¡Gracias por tu interés!",
+    "thanksText" : "Hemos recibido tu solicitud. Nuestro equipo se pondrá en contacto contigo lo antes posible.",
+    "thanksBtn"  : "Cerrar"
+  },
+  "contact": {
+    "title": "Contacto | Balcones del Pinillo",
+    "heroTitle": "Ponte en contacto con nosotros",
+    "heroSub": "Estamos a un mensaje de distancia",
+    "imgAlt": "Persona rellenando un formulario",
+    "formTitle": "Rellene sus datos",
+    "infoTitle": "También puedes llamarnos",
+    "infoText": "Teléfono: +34 900 123 456 · Email: info@balconesdelpinillo.com"
+  },
+  "availability": {
+    "title": "Disponibilidad | Balcones del Pinillo",
+    "heroTitle": "Consulta la disponibilidad",
+    "heroSub": "Actualizamos la información en tiempo real",
+    "comingSoon": "Sección en construcción",
+    "comingSoonText": "Muy pronto podrás ver aquí los planos y precios actualizados."
+  },
+  "blockA": {
+    "title"     : "Bloque A · Planos",
+    "heroTitle" : "Bloque A",
+    "heroSub"   : "Selecciona una vivienda",
+    "infoTitle" : "Elige planta y tipología",
+    "infoText"  : "Próximamente más detalles y fichas descargables."
+  },
+  "blockB": {
+    "title"     : "Bloque B · Planos",
+    "heroTitle" : "Bloque B",
+    "heroSub"   : "Selecciona una vivienda",
+    "infoTitle" : "Elige planta y tipología",
+    "infoText"  : "Próximamente más detalles y fichas descargables."
+  }
+}

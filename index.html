@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS y fuentes como antes -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./mediaquaries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- i18next (CDN) -->
+    <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <title data-i18n="title"></title>
+  </head>
+
+  <body>
+    <!--*** Header navbar section ***-->
+    <header>
+      <nav>
+        <div class="logo">
+          <span data-i18n="brand.part1"></span
+          ><span data-i18n="brand.part2"></span>
+        </div>
+
+        <div class="burgar" onclick="toggleNav()">&#9776;</div>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"   data-i18n="nav.home"></a></li>
+          <li><a href="contact.html" data-i18n="nav.contact"></a></li>
+          <li><a href="availability.html" data-i18n="nav.availability"></a></li>
+        </ul>
+
+        <div class="btn">
+          <a class="sign_up" href="bridget" data-i18n="btn.contact"></a>
+        </div>
+      </nav>
+    </header>
+    <!--*** End navbar ***-->
+
+    <!--*** Hero section ***-->
+    <section class="section_1">
+      <div class="bg_div">
+        <h2 class="bg_text1" data-i18n="hero.welcome"></h2>
+        <h2 class="bg_text2" data-i18n="hero.tagline"></h2>
+      </div>
+    </section>
+
+    <!--*** Services section ***-->
+    <section class="section_3">
+      <div class="service-header reveal">
+        <h1 data-i18n="services.title"></h1>
+        <h2 data-i18n="services.subtitle"></h2>
+        <p data-i18n="services.description"></p>
+      </div>
+    </section>
+      
+    <!-- BLOQUE 1 ---------------------------------------------------->
+    <section class="img-text">
+      <img src="images/img2.webp" class="img-text__img" alt="" data-i18n="project.imgAlt" />
+
+      <div class="img-text__body">
+        <h2 class="img-text__title reveal"  data-i18n="project.description"></h2>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: imagen derecha ----------------------------------->
+    <section class="img-text img-text--reverse">
+      <img src="images/img3.webp" class="img-text__img" alt="" data-i18n="project2.imgAlt" />
+
+      <div class="img-text__body">
+        <h3 class="img-text__subtitle reveal" data-i18n="project.featuresTitle"></h3>
+
+        <ul class="img-text__list reveal">
+          <li data-i18n="project.features.homes"></li>
+          <li data-i18n="project.features.seaViews"></li>
+          <li data-i18n="project.features.terraces"></li>
+          <li data-i18n="project.features.livingRooms"></li>
+          <li data-i18n="project.features.amenities"></li>
+          <li data-i18n="project.features.parking"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3 ---------------------------------------------------->
+    <section class="img-text">
+      <img src="images/img4.webp" class="img-text__img" alt="" data-i18n="project3.imgAlt" />
+
+      <div class="img-text__body">
+        <p class="img-text__paragraph reveal" data-i18n="project.locationAdvantages"></p>
+      </div>
+    </section>
+    
+    <!--*** Blog section ***-->
+    <section class="section_2">
+      <div class="blog-header">
+        <h1 class="section2_text" data-i18n="blog.title"></h1>
+        <p class="house" data-i18n="blog.subtitle"></p>
+      </div>
+      <!--
+      <div class="blog-gallary">
+        <div class="section2_div1">
+          <img src="images/elite_img1.webp" />
+
+          <div class="div_details">
+            <h2 class="details_1" data-i18n="blog.card1.title"></h2>
+            <p class="details_2">
+              <i class="fa-solid fa-location-dot" style="color:#a09d9d"></i>&nbsp;
+              <span data-i18n="blog.card1.location"></span>
+            </p>
+            <p class="details_3">
+              <i class="fa-solid fa-house" style="color:#a09d9d"></i>&nbsp;
+              <span data-i18n="blog.card1.type"></span>
+            </p>
+            <button data-i18n="blog.viewDetails"></button>
+          </div>
+        </div>
+        -->
+
+        <!-- Más tarjetas… -->
+      </div>
+    </section>
+
+    <!--*** Footer ***-->
+    <footer>
+      <p data-i18n="footer.contact"></p>
+      <p>
+        <span data-i18n="footer.follow"></span><br />
+        <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;
+        <i class="fa-brands fa-square-x-twitter"></i>&nbsp;&nbsp;
+        <i class="fa-brands fa-square-instagram"></i>&nbsp;&nbsp;
+        <i class="fa-brands fa-linkedin"></i>
+      </p>
+      <p class="footer-text1" data-i18n="footer.copyright"></p>
+      <p class="footer-text1" data-i18n="footer.developer"></p>
+    </footer>
+
+    <script>
+      // función que pinta los textos
+      function renderPage() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          el.innerHTML = i18next.t(el.getAttribute('data-i18n'));
+        });
+      }
+
+      i18next
+        .use(i18nextHttpBackend)
+        .use(i18nextBrowserLanguageDetector)
+        .init(
+          {
+            fallbackLng: 'es',       // usa es.json si algo falla
+            load: 'languageOnly',    // “es-ES” → “es”
+            debug: true,
+            backend: {
+              loadPath: 'langs/{{lng}}.json'   //  ← aquí la ruta correcta
+            }
+          },
+          (err) => {
+            if (err) return console.error(err);
+            renderPage();            // pinta la página la primera vez
+          }
+        );
+
+      // si algún día cambias de idioma manualmente
+      i18next.on('languageChanged', renderPage);
+    </script>
+
+    <!-- POP-UP de solicitud de información -->
+    <div id="infoModal" class="modal">
+      <div id="modalOverlay" class="modal__overlay"></div>
+
+      <div class="modal__box">
+        <button id="modalClose" class="modal__close">&times;</button>
+
+        <h2 class="modal__title" data-i18n="popup.title"></h2>
+
+        <form id="leadForm" class="modal__form">
+          <label data-i18n="popup.nameLabel"></label>
+          <input type="text" name="name" required>
+
+          <label data-i18n="popup.emailLabel"></label>
+          <input type="email" name="email" required>
+
+          <label data-i18n="popup.phoneLabel"></label>
+          <input type="tel" name="phone" required>
+
+          <label data-i18n="popup.msgLabel"></label>
+          <textarea name="message" rows="3"
+                    data-i18n-placeholder="popup.msgPlaceholder"></textarea>
+
+          <button type="submit" class="modal__send" data-i18n="popup.send"></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- POP-UP de agradecimiento -->
+    <div id="thankModal" class="modal">
+      <div id="thankOverlay" class="modal__overlay"></div>
+
+      <div class="modal__box">
+        <button id="thankClose" class="modal__close">&times;</button>
+
+        <!-- i18next insertará el título -->
+        <h2 class="modal__title" data-i18n="popup.thanksTitle"></h2>
+
+        <!-- y este párrafo -->
+        <p class="modal__paragraph" data-i18n="popup.thanksText"></p>
+
+        <!-- y el texto del botón -->
+        <button id="thankOk" class="modal__send" data-i18n="popup.thanksBtn"></button>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+
+  </body>
+</html>
