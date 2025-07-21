@@ -89,13 +89,15 @@
     "heroTitle" : "Bloque A",
     "heroSub"   : "Selecciona una vivienda",
     "infoTitle" : "Elige planta y tipología",
-    "infoText"  : "Próximamente más detalles y fichas descargables."
+    "infoText"  : "Próximamente más detalles y fichas descargables.",
+    "clickHint" : "Haz clic en una vivienda…"
   },
   "blockB": {
     "title"     : "Bloque B · Planos",
     "heroTitle" : "Bloque B",
     "heroSub"   : "Selecciona una vivienda",
     "infoTitle" : "Elige planta y tipología",
-    "infoText"  : "Próximamente más detalles y fichas descargables."
+    "infoText"  : "Próximamente más detalles y fichas descargables.",
+    "clickHint" : "Haz clic en una vivienda…"
   }
 }

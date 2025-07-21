@@ -10,18 +10,20 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- FUENTES -->
+  <!-- FUENTES GOOGLE -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap"
+        rel="stylesheet">
 
-  <!-- i18next (igual que en index) -->
+  <!-- i18next -->
   <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
   <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
   <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
 
-  <title data-i18n="blockB.title">Bloque B · Planos</title>
+  <title data-i18n="blockA.title">Bloque B · Planos</title>
 </head>
+
 <body>
 
 <!-- █ NAVBAR (copiado) █ -->
@@ -35,8 +37,8 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html"        data-i18n="nav.home"></a></li>
-      <li><a href="contact.html"      data-i18n="nav.contact"></a></li>
       <li><a href="availability.html" data-i18n="nav.availability"></a></li>
+      <li><a href="contact.html"      data-i18n="nav.contact"></a></li>
     </ul>
 
     <div class="btn">
@@ -58,18 +60,17 @@
         <p data-i18n="blockB.clickHint">Haz clic en una vivienda…</p>
       </div>
 
-      <!-- Títulos superpuestos -->
-      <div class="bg_div">
-        <h2 class="bg_text1" data-i18n="blockB.heroTitle"></h2>
-        <h2 class="bg_text2" data-i18n="blockB.heroSub"></h2>
-      </div>
-
       <!-- Plano -->
       <img src="images/bloque.webp"
            id="blockB-img"
            usemap="#blockB-map"
            alt="Plano de viviendas Bloque B">
 
+      <!-- Títulos superpuestos -->
+      <div class="bg_div">
+        <h2 class="bg_text1" data-i18n="blockB.heroTitle"></h2>
+        <h2 class="bg_text2" data-i18n="blockB.heroSub"></h2>
+      </div>
       
     </div>
   </div>
@@ -119,30 +120,40 @@
   <p class="footer-text1" data-i18n="footer.developer"></p>
 </footer>
 
-<!-- LIBRERÍAS Y TU JS (mismo orden que en availability) -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
-<script>
-  // ruta al worker (obligatorio desde v3)
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
-</script>
-<script src="./app.js"></script>
+<!-- 1. jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<!-- i18next init (idéntico a las otras páginas) -->
-<script>
-function renderPage(){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    el.innerHTML = i18next.t(el.dataset.i18n);
-  });
-}
-i18next.use(i18nextHttpBackend).use(i18nextBrowserLanguageDetector).init({
-  fallbackLng:'es',
-  load:'languageOnly',
-  backend:{loadPath:'langs/{{lng}}.json'}
-}, renderPage);
-i18next.on('languageChanged', renderPage);
-</script>
+  <!-- 2. ImageMapster -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
+
+  <!-- 3. PDF.js oficial de pdfjs-dist -->
+  <script src="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+  <script>
+    // Ahora sí existe window.pdfjsLib
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js";
+  </script>
+
+  <!-- 4. Tu código principal -->
+  <script src="./app.js"></script>
+
+  <!-- 5. Inicialización de i18next (si la quieres al final) -->
+  <script>
+    function renderPage(){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        el.innerHTML = i18next.t(el.dataset.i18n);
+      });
+    }
+    i18next
+      .use(i18nextHttpBackend)
+      .use(i18nextBrowserLanguageDetector)
+      .init({
+        fallbackLng:'es',
+        load:'languageOnly',
+        backend:{loadPath:'langs/{{lng}}.json'}
+      }, renderPage);
+    i18next.on('languageChanged', renderPage);
+  </script>
+
 </body>
 </html>

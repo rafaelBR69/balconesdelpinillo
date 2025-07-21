@@ -682,11 +682,13 @@ area:focus{
   margin:.2rem 0 .7rem;
   font-size:2rem;       /* antes heredaba ≈1.6 rem */
   color:#5C4033;
+  font-weight: 900;
 }
 
 .info-text li{
   font-size:2rem;    /* sube cada línea un 10-15 % */
   line-height:1.55;     /* mantiene la separación */
+  font-weight: 600;
 }
 
 /* lista */
@@ -723,4 +725,52 @@ area:focus{
   .plan-box .bg_div{
     top:16%;
   }
+}
+
+/*──────────────────────────────────────────────
+  Tarjeta informativa de la vivienda
+──────────────────────────────────────────────*/
+.info-card{
+  background:#fff;                       /* tarjeta clara */
+  border-radius:12px;
+  padding:1.6rem 2rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.12); /* sombra suave */
+  max-width:320px;                       /* anchura máx. */
+  margin-inline:auto;                    /* centrada */
+  animation:popIn .35s ease;             /* entrada */
+}
+
+/* lista sin viñeta nativa */
+.info-card ul{list-style:none;padding-left:0;margin:0 0 1rem}
+.info-card li{margin-bottom:.35rem}
+
+/* pdf-preview separador */
+.pdf-preview{margin-top:1rem}
+
+/* pequeño “pop” al aparecer */
+@keyframes popIn{
+  0%{transform:scale(.85);opacity:0}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* ── badge de estado ───────────────────── */
+.badge{
+  display:inline-block;
+  padding:0.25rem 1.5rem;
+  font-size:1.35rem;
+  font-weight:700;
+  border-radius:9999px;
+  margin-left:0.6rem;
+  line-height:1.2;
+}
+.badge-disponible{background:#E1F4E1;color:#4B9B4B;}
+.badge-reservado {background:#FFF5D1;color:#C08F5C;}
+.badge-vendido   {background:#F8D7D7;color:#B63E3E;}
+
+/* precio destacado */
+.precio{
+  margin-top:0.6rem;
+  font-size:1.6rem;
+  font-weight:700;
+  color:#C08F5C;
 }

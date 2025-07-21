@@ -102,170 +102,232 @@ if (leadForm){
 }
 
 /* ──────────────────────────────
-   4. Draw-Attention (Image-Mapster) en availability.html
+   4. Draw‑Attention · Image‑Mapster
 ──────────────────────────────── */
-console.log('[Debug] jQuery:', !!window.jQuery);
-console.log('[Debug] $.fn.mapster:', !!(window.jQuery && $.fn.mapster));
+console.log('[Debug] Mapster OK?',
+            !!(window.jQuery && $.fn.mapster));
 
 window.addEventListener('load', () => {
-  console.log('[Mapster] 🚀  window load disparado');
 
-  if (!window.jQuery || !$.fn.mapster){
-    console.error('[Mapster] ❌  jQuery o Mapster no cargados');
-    return;
-  }
+  if (!window.jQuery || !$.fn.mapster) { return; }
 
-  const $img = $('#avail-img, #blockA-img');
-  if (!$img.length){
-    console.log('[Mapster] Página sin #avail-img. Fin.');
-    return;
-  }
-  console.log('[Mapster] ✅  Imagen encontrada:',
-              $img[0].naturalWidth, '×', $img[0].naturalHeight);
+  /* ── ¿en availability.html o en bloque‑A/bloque‑B? ───────── */
+  const isAvailability = !!document.getElementById('avail-img');
+  const $img = isAvailability
+                 ? $('#avail-img')                 // availability
+                 : $('#blockA-img, #blockB-img');  // bloques
 
-  const base   = '2F4F4F'; // relleno
-  const border = '2F4F4F'; // borde
+  if (!$img.length) { return; }
 
-  $img.mapster({
-    mapKey        : 'data-key',
-    singleSelect  : false,
-    clickNavigate : true,
-    scaleMap: true,
+  /* Colores básicos */
+  const base   = '2F4F4F';
+  const border = '2F4F4F';
 
-    render_select   : { fillColor:base, fillOpacity:0.35,
-                        stroke:true,  strokeColor:border, strokeWidth:3 },
-    render_highlight: { fillColor:base, fillOpacity:0.55,
-                        stroke:true,  strokeColor:border, strokeWidth:3 },
+  /*═════════════  1 · PÁGINA “DISPONIBILIDAD”  ═════════════*/
+  if (isAvailability) {
 
-    onClick(area){
-      console.log('[Mapster] Click en', area.key, '→', area.href);
-      return false;          // evita scroll automático
-    },
+    $img.mapster({
+      mapKey        : 'data-key',
+      singleSelect  : false,    // mantener A y B marcados
+      clickNavigate : true,     // sigue el href del <area>
+      scaleMap      : true,
 
-    onConfigured(){
-      console.log('[Mapster] 🔄  Configuración terminada');
-      // pinta todas las áreas al cargar
-      $img.mapster('set', true, 'bloqueA,bloqueB');
-      console.log('[Mapster] Áreas coloreadas por defecto');
-    }
-  });
-});
+      render_select   : {fillColor:base, fillOpacity:0.40,
+                         stroke:true, strokeColor:border, strokeWidth:3},
+      render_highlight: {fillColor:base, fillOpacity:0.55,
+                         stroke:true, strokeColor:border, strokeWidth:3},
 
-/* ─────────  Plano interactivo · cualquier bloque  ───────── */
-$(function () {
-
-  /* ░░ 1. LOCALIZAR ELEMENTOS ░░ */
-  const $section = $('.section_1--availability');
-  if (!$section.length) return;                       // página sin plano
-
-  const jsonURL = $section.data('json');              // viviendas-*.json
-  const $img    = $section.find('img[usemap]');       // plano dentro
-  const $out    = $('#info-text');                    // div de la ficha
-
-  if (!jsonURL || !$img.length) {
-    console.warn('Falta data-json o <img> con usemap');
-    return;
-  }
-
-  /* ░░ 2. CARGAR JSON y luego iniciar Mapster ░░ */
-  let viviendas = {};
-  $.getJSON(jsonURL)
-    .done(data => { viviendas = data; iniciarMapster(); })
-    .fail(()   => console.error(`[JSON] No se pudo leer ${jsonURL}`));
-
-  /* ░░ 3. INICIALIZAR MAPSTER ░░ */
-  function iniciarMapster(){
-
-    const base      = '2F4F4F';
-    const border    = '2F4F4F';
-    const amarillo  = 'FFC300';
-    const rojo      = 'B63E3E';
-
-    /* ① Opciones por-área y lista de “vendidos” para pintarlos de inicio */
-    const vendidos   = [];
-    const areaOpts = Object.entries(viviendas).map(([key, v])=>{
-      if (v.estado === 'reservado'){
-        return {
-          key,
-          isSelectable:true,
-          render_highlight:{fillColor:amarillo,fillOpacity:0.55,
-                            stroke:true,strokeColor:border,strokeWidth:3},
-          render_select  :{fillColor:amarillo,fillOpacity:0.45,
-                            stroke:true,strokeColor:border,strokeWidth:3}
-        };
+      onConfigured() {
+        /* sombrear bloqueA y bloqueB al cargar */
+        $img.mapster('set', true, 'bloqueA,bloqueB');
       }
-      if (v.estado === 'vendido'){
-        vendidos.push(key);          // ← guardamos para pintarlo al cargar
-        return {
-          key,
-          isSelectable:false,
-          staticState:true,           // siempre rojo
-          render_highlight:{fillColor:rojo,fillOpacity:0.55,
-                            stroke:true,strokeColor:border,strokeWidth:3},
-          render_select  :{fillColor:rojo,fillOpacity:0.55,
-                            stroke:true,strokeColor:border,strokeWidth:3}
-        };
-      }
-      return { key };                // disponible → solo gris al hover
     });
 
-    /* ② Inicializar Mapster */
+    return;          // ⬅️  lo que queda debajo sólo para páginas de bloque
+  }
+
+  /*═════════════  2 · PÁGINAS  BLOQUE A / B  ═════════════*/
+  const $section = $('.section_1--availability');
+  const jsonURL  = $section.data('json');
+  const $out     = $('#info-text');
+
+  if (!jsonURL || !$img.length) { return; }
+
+  $.getJSON(jsonURL)
+    .done(viviendas => iniciarMapster(viviendas))
+    .fail(() => console.error('[JSON] No se pudo leer', jsonURL));
+
+  /* ---------------- MAPSTER del plano del bloque ---------------- */
+  function iniciarMapster(viviendas) {
+
+    const amarillo = 'FFC300';
+    const rojo     = 'B63E3E';
+
+    /* Opciones por‑área + vendidos */
+    const vendidos = [];
+    const areaOpts = Object.entries(viviendas).map(([key, v]) => {
+      if (v.estado === 'reservado') {
+        return {
+          key,
+          render_highlight: {fillColor:amarillo, fillOpacity:0.55,
+                             stroke:true, strokeColor:amarillo, strokeWidth:3},
+          render_select  : {fillColor:amarillo, fillOpacity:0.45,
+                             stroke:true, strokeColor:amarillo, strokeWidth:3}
+        };
+      }
+      if (v.estado === 'vendido') {
+        vendidos.push(key);
+        return {
+          key,
+          isSelectable  : false,
+          staticState   : true,
+          render_highlight: {fillColor:rojo, fillOpacity:0.55,
+                             stroke:true, strokeColor:rojo, strokeWidth:3},
+          render_select  : {fillColor:rojo, fillOpacity:0.55,
+                             stroke:true, strokeColor:rojo, strokeWidth:3}
+        };
+      }
+      /* disponible */
+      return {
+        key,
+        render_highlight: {fillColor:base, fillOpacity:0.55,
+                           stroke:true, strokeColor:base, strokeWidth:3},
+        render_select  : {fillColor:base, fillOpacity:0.35,
+                           stroke:true, strokeColor:base, strokeWidth:3}
+      };
+    });
+
+    let currentSelection = null;     // recuerdas la última selección
+
     $img.mapster({
-      mapKey       :'data-key',
-      singleSelect : false,
-      clickNavigate: false,
-      scaleMap     : true,
+      mapKey        : 'data-key',
+      singleSelect  : false,         // exclusión manual
+      clickNavigate : false,
+      scaleMap      : true,
+      areas         : areaOpts,
 
-      /* estilo por defecto (disponibles) */
-      render_select   :{fillColor:base,fillOpacity:0.35,
-                        stroke:true,strokeColor:border,strokeWidth:3},
-      render_highlight:{fillColor:base,fillOpacity:0.55,
-                        stroke:true,strokeColor:border,strokeWidth:3},
+      render_select   : {fillColor:base, fillOpacity:0.35,
+                         stroke:true, strokeColor:border, strokeWidth:3},
+      render_highlight: {fillColor:base, fillOpacity:0.55,
+                         stroke:true, strokeColor:border, strokeWidth:3},
 
-      areas: areaOpts,
-
-      onClick(area){
+      onClick(area) {
         const v = viviendas[area.key];
-        if (v && v.estado === 'vendido') return false;   // bloquea click
-        mostrarInfo(area.key);
-        return false;
+        if (v && v.estado === 'vendido') { return false; }
+
+        /* desmarca la anterior */
+        if (currentSelection) {
+          $img.mapster('set', false, currentSelection);
+        }
+        /* marca la nueva */
+        $img.mapster('set', true, area.key);
+        currentSelection = area.key;
+
+        mostrarInfo(viviendas, area.key);
+        return false;                // evita scroll
       },
 
-      onConfigured(){
-        /* ③ Pinta SOLO los “vendidos” al cargar */
-        if (vendidos.length){
+      onConfigured() {
+        if (vendidos.length) {
           $img.mapster('set', true, vendidos.join(','));
         }
       }
     });
 
-    /* ④ Reescala en resize */
-    $(window).on('resize', ()=>{
-      const w = $img.parent().width();
-      $img.mapster('resize', w, 0, 0);
+    /* reescala al cambiar tamaño */
+    $(window).on('resize', () => {
+      $img.mapster('resize', $img.parent().width(), 0, 0);
     });
   }
 
-  /* ░░ 4. PINTAR LA FICHA ░░ */
-  function mostrarInfo (key) {
+  /* ------- 3 · Tarjeta de información + PDF + contador ------- */
+
+  /* rutas a los PDF por planta */
+  const PLANOS = {
+    bajo    : 'planos/plano-bajo.pdf',
+    primero : 'planos/plano-primero.pdf',
+    segundo : 'planos/plano-segundo.pdf',
+    tercero : 'planos/plano-tercero.pdf'
+  };
+
+  function mostrarInfo(viviendas, key) {
     const d = viviendas[key];
     if (!d) { $out.html('<p>Sin datos…</p>'); return; }
 
-    const precio = new Intl.NumberFormat(
-                     'es-ES', {style:'currency', currency:'EUR'}
-                   ).format(d.precio);
+    const planta = /bajo/i.test(key) ? 'bajo'     :
+                   /prim/i.test(key) ? 'primero'  :
+                   /seg/i.test(key)  ? 'segundo'  :
+                   /ter/i.test(key)  ? 'tercero'  : null;
 
     $out.html(`
-      <h3>${d.nombre}</h3>
-      <p class="estado-${d.estado}">${d.estado.toUpperCase()}</p>
-      <ul>
-        <li>${d.habit} habitaciones</li>
-        <li>${d.m2} m² construidos</li>
-        <li>${d.terraza} m² terraza</li>
-        <li>Orientación ${d.orientacion}</li>
-        <li>${precio}</li>
-      </ul>
-      <p><a href="${d.pdf}" target="_blank">Descargar ficha PDF</a></p>
+      <div class="info-card">
+        <h3>
+          ${d.nombre}
+          <span class="badge badge-${d.estado}">
+            ${d.estado.toUpperCase()}
+          </span>
+        </h3>
+
+        <ul>
+          <li>${d.habit} habitaciones</li>
+          <li>${d.m2} m² construidos</li>
+          <li>${d.terraza} m² terraza</li>
+          <li>Orientación ${d.orientacion}</li>
+          <li class="precio">
+            <span id="price-value">0 €</span>
+          </li>
+        </ul>
+
+        <div id="plano-preview" class="pdf-preview"></div>
+      </div>
     `);
+
+    /* mini‑vista PDF */
+    if (planta && PLANOS[planta]) {
+      renderPdfPreview(PLANOS[planta], $('#plano-preview'));
+    } else {
+      $('#plano-preview').text('Plano no disponible');
+    }
+
+    /* contador animado del precio */
+    animatePrice('#price-value', d.precio, 800);
   }
+
+  /* contador 0 → valor */
+  function animatePrice(selector, finalValue, duration) {
+    const el   = document.querySelector(selector);
+    const start= performance.now();
+    const fmt  = new Intl.NumberFormat('es-ES',
+                  {style:'currency', currency:'EUR'});
+    function tick(now){
+      const p = Math.min(1, (now - start) / duration);
+      el.textContent = fmt.format(Math.round(p * finalValue));
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* primera página del PDF a mini‑canvas */
+  function renderPdfPreview(url, $container){
+    $container.empty();
+    pdfjsLib.getDocument(url).promise.then(pdf=>{
+      pdf.getPage(1).then(page=>{
+        const scale = 0.25;
+        const viewport = page.getViewport({ scale });
+        const canvas   = $('<canvas>').get(0);
+        const ctx      = canvas.getContext('2d');
+
+        canvas.width  = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.cursor = 'pointer';
+        canvas.style.border = '1px solid #ccc';
+        canvas.addEventListener('click', () =>
+          window.open(url, '_blank'));
+
+        $container.append(canvas);
+        page.render({ canvasContext: ctx, viewport });
+      });
+    });
+  }
+
 });
