@@ -295,19 +295,25 @@ window.addEventListener('load', () => {
     }
 
     /* contador animado del precio */
-    animatePrice('#price-value', d.precio, 800);
+    animatePrice('#price-value', d.precio, 800, 800000);
   }
 
-  /* contador 0 → valor */
-  function animatePrice(selector, finalValue, duration) {
-    const el   = document.querySelector(selector);
-    const start= performance.now();
-    const fmt  = new Intl.NumberFormat('es-ES',
-                  {style:'currency', currency:'EUR'});
-    function tick(now){
-      const p = Math.min(1, (now - start) / duration);
-      el.textContent = fmt.format(Math.round(p * finalValue));
-      if (p < 1) requestAnimationFrame(tick);
+  /* contador startValue → finalValue  */
+  function animatePrice(selector, finalValue, duration, startValue = 0) {
+    const el    = document.querySelector(selector);
+    const start = performance.now();
+    const delta = finalValue - startValue;           // diferencia a recorrer
+
+    const fmt = new Intl.NumberFormat('es-ES', {
+      style: 'currency',
+      currency: 'EUR'
+    });
+
+    function tick(now) {
+      const p = Math.min(1, (now - start) / duration);     // 0 → 1
+      const current = startValue + delta * p;              // valor intermedio
+      el.textContent = fmt.format(Math.round(current));    // pinta el nº
+      if (p < 1) requestAnimationFrame(tick);              // siguiente frame
     }
     requestAnimationFrame(tick);
   }
