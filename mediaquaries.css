@@ -392,6 +392,22 @@
     .unit-info{width:100%;order:2;}
     #blockA-img{order:1;}
   }
+
+  .lead-card{
+    grid-template-columns:1fr 1fr;    /* 2 columnas */
+    column-gap:1.6rem;
+    max-width:640px;
+  }
+  
+  .lead-card h3,
+  .lead-card button{
+    grid-column:1 / -1;               /* ocupar ambas columnas */
+  }
+  
+  /* mantiene textarea ancho completo */
+  .lead-card textarea{
+    min-height:7rem;
+  }
 }
 
 /*────────────────────────────────────────
@@ -458,3 +474,19 @@
   }
 }
 
+/* ───────── VERSIÓN MÓVIL ───────── */
+@media (max-width:900px){
+  /* volvemos a poner el formulario en el flujo para apilar todo */
+  .lead-card{
+    position:static;
+    margin:2rem auto 0;
+    transform:none;
+  }
+
+  /* centramos conjunto plano + formulario */
+  .plan-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+}

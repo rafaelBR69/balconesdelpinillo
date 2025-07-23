@@ -71,8 +71,37 @@
         <h2 class="bg_text1" data-i18n="blockB.heroTitle"></h2>
         <h2 class="bg_text2" data-i18n="blockB.heroSub"></h2>
       </div>
-      
     </div>
+
+    <!-- NUEVO · formulario de interés -->
+    <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
+      <h3>¿Te interesa?</h3>
+
+      <label>
+        Nombre
+        <input type="text"  name="name"   required>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email"  required>
+      </label>
+
+      <label>
+        Teléfono
+        <input type="tel"   name="phone"  required>
+      </label>
+
+      <label>
+        Mensaje
+        <textarea name="message" rows="3"
+                  placeholder="Quiero más información sobre esta vivienda…">
+        </textarea>
+      </label>
+
+      <button type="submit">Enviar</button>
+    </form>
+    
   </div>
 
   <!-- MAPA de coordenadas -->

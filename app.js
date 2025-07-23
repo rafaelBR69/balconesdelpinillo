@@ -75,31 +75,36 @@ if (modal){
   window.addEventListener('scroll', handleScroll);
 }
 
-/* Envío a Google Sheets (solo si leadForm existe) */
-if (leadForm){
-  leadForm.addEventListener('submit', async e => {
+/* ==== Envío a Google Sheets para TODOS los formularios data‑lead ==== */
+document.querySelectorAll('form[data-lead]').forEach(form => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const data = {
-      name   : leadForm.name.value.trim(),
-      email  : leadForm.email.value.trim(),
-      phone  : leadForm.phone.value.trim(),
-      message: leadForm.message.value.trim(),
-      origin : 'Formulario Web'
-    };
+
+    /* ➊ Recogemos los campos (name, email, …) */
+    const fd   = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+
+    /* ➋ Campo extra para saber de dónde llegó la solicitud */
+    data.origin = form.dataset.origin || 'Formulario Web';
+
     try {
-      closeModal();
-      openThank();
+      /* cierra pop‑up o muestra gracias, si existen */
+      if (typeof closeModal === 'function') closeModal();
+      if (typeof openThank  === 'function') openThank();
+
+      /* ➌ Envío sin CORS */
       await fetch(
         'https://script.google.com/macros/s/AKfycbxlBgB28gJM1LyutP76PLlsJy9dWhuZTgwFwT3fYZrEH4CBZu0UQ8peW3hkz8Nnsukjqw/exec',
         { method:'POST', mode:'no-cors', body:JSON.stringify(data) }
       );
-      leadForm.reset();
+
+      form.reset();
     } catch (err) {
       console.error(err);
       alert('Ups, no se pudo enviar. Inténtalo de nuevo.');
     }
   });
-}
+});
 
 /* ──────────────────────────────
    4. Draw‑Attention · Image‑Mapster
