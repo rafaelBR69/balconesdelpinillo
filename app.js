@@ -26,12 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ──────────────────────────────
-   3. Pop-up  (formulario → Google Sheets)
+   3. Pop‑up  (formulario → Google Sheets)
 ──────────────────────────────── */
 
 /* Configuración */
-const TIME_DELAY   = 19000; // 12 s
-const SCROLL_RATIO = 0.80;  // 55 % de scroll
+const TIME_DELAY = 19_000;     // 19 s
 
 /* Referencias DOM (pueden NO existir en algunas páginas) */
 const modal        = document.getElementById('infoModal');
@@ -47,33 +46,24 @@ const thankOk      = document.getElementById('thankOk');
 /* Helper ─ añade listener sólo si el nodo existe */
 const on = (el, evt, fn) => el && el.addEventListener(evt, fn);
 
-/* Helpers pop-up */
-const openModal  = () => modal  && modal .classList.add('show');
-const closeModal = () => modal  && modal .classList.remove('show');
+/* Helpers pop‑up */
+const openModal  = () => modal      && modal.classList.add('show');
+const closeModal = () => modal      && modal.classList.remove('show');
 const openThank  = () => thankModal && thankModal.classList.add('show');
 const closeThank = () => thankModal && thankModal.classList.remove('show');
 
 /* Cerrar modales */
-on(btnClose , 'click', closeModal);
-on(overlay  , 'click', closeModal);
+on(btnClose   , 'click', closeModal);
+on(overlay    , 'click', closeModal);
 on(thankClose , 'click', closeThank);
 on(thankOk    , 'click', closeThank);
 on(thankOverlay,'click', closeThank);
 
-/* Apertura automática (si existe el modal) */
-if (modal){
-  const timerID = setTimeout(openModal, TIME_DELAY);
-  function handleScroll () {
-    const ratio = (window.scrollY + window.innerHeight) /
-                  document.documentElement.scrollHeight;
-    if (ratio >= SCROLL_RATIO) {
-      openModal();
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timerID);
-    }
-  }
-  window.addEventListener('scroll', handleScroll);
+/* Apertura automática SOLO por tiempo */
+if (modal) {
+  setTimeout(openModal, TIME_DELAY);
 }
+
 
 /* ==== Envío a Google Sheets para TODOS los formularios data‑lead ==== */
 document.querySelectorAll('form[data-lead]').forEach(form => {
@@ -295,7 +285,7 @@ window.addEventListener('load', () => {
     }
 
     /* contador animado del precio */
-    animatePrice('#price-value', d.precio, 800, 800000);
+    animatePrice('#price-value', d.precio, 800, 700000);
   }
 
   /* contador startValue → finalValue  */

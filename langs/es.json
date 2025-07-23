@@ -37,7 +37,7 @@
     "viewDetails": "Ver detalles"
   },
   "footer": {
-    "contact": "Contáctanos: info@blancareal.com",
+    "contact": "Contáctanos: info@blancareal.com | +34 621 28 34 45",
     "follow": "Síguenos",
     "copyright": "©2024 | Todos los derechos reservados",
     "developer": "Desarrollado por Marketing BlancaReal"
@@ -75,7 +75,7 @@
     "imgAlt": "Persona rellenando un formulario",
     "formTitle": "Rellene sus datos",
     "infoTitle": "También puedes llamarnos",
-    "infoText": "Teléfono: +34 900 123 456 · Email: info@balconesdelpinillo.com"
+    "infoText": "Teléfono: +34 621 28 34 45 · Email: info@blancareal.com"
   },
   "availability": {
     "title": "Disponibilidad | Balcones del Pinillo",
@@ -98,6 +98,11 @@
     "heroSub"   : "Selecciona una vivienda",
     "infoTitle" : "Elige planta y tipología",
     "infoText"  : "Próximamente más detalles y fichas descargables.",
-    "clickHint" : "Haz clic en una vivienda…"
+    "clickHint" : "Haz clic en una vivienda…",
+    "imgAlt": "Plano de viviendas Bloque B"
+  },
+  "leadForm": {
+    "title": "¿Te interesa?",
+    "msgPlaceholderHousing": "Quiero más información sobre esta vivienda…"
   }
 }

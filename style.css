@@ -857,6 +857,36 @@ area:focus{
 .lead-card button:hover  { opacity:.9; }
 .lead-card button:active { transform:scale(.95); }
 
+/* Iconos sociales en el footer */
+footer .social a{
+  text-decoration:none;    /* quita el subrayado */
+  border-bottom:none;      /* por si algún reset añade borde */
+  color:#ddd;
+  margin:0 .4rem;
+  font-size:2.2rem;
+  line-height:1;           /* evita que la línea base deje espacio raro */
+  display:inline-block;    /* más consistente en todos los navegadores */
+  transition:color .25s ease;
+}
+
+footer .social a:visited{
+  text-decoration:none;
+  color:#ddd;
+}
+
+footer .social a:hover,
+footer .social a:focus{
+  color:#F4EBDD;
+  outline:none;
+  text-decoration:none;
+}
+
+.btn .primary{
+  background:#5C4033;
+  color:#F4EBDD !important;
+  /* …resto… */
+}
+
 /* ─── Vista móvil ────────────────────────────────────────── */
 @media (max-width:900px){
   .lead-card{

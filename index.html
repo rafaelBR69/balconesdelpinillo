@@ -47,7 +47,8 @@
         </ul>
 
         <div class="btn">
-          <a class="sign_up" href="bridget" data-i18n="btn.contact"></a>
+          <a class="sign_up primary" href="contact.html#contactForm"
+            data-i18n="btn.contact">Contactar</a>
         </div>
       </nav>
     </header>
@@ -141,10 +142,30 @@
       <p data-i18n="footer.contact"></p>
       <p>
         <span data-i18n="footer.follow"></span><br />
-        <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp;
-        <i class="fa-brands fa-square-x-twitter"></i>&nbsp;&nbsp;
-        <i class="fa-brands fa-square-instagram"></i>&nbsp;&nbsp;
-        <i class="fa-brands fa-linkedin"></i>
+        <!-- Redes sociales / enlaces externos -->
+        <div class="social">
+          <a href="https://www.instagram.com/blancarealspain/?hl=es"
+            target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram fa-fw"></i>
+          </a>
+
+          <a href="https://es.linkedin.com/company/blancareal-real-estate"
+            target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin fa-fw"></i>
+          </a>
+
+          <!-- Icono globo (sitio web oficial) -->
+          <a href="https://www.blancareal.com/"
+            target="_blank" rel="noopener" aria-label="Sitio web">
+            <i class="fa-solid fa-globe fa-fw"></i>
+          </a>
+
+          <!-- Icono YouTube -->
+          <a href="https://www.youtube.com/@BlancaRealSpain"
+            target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fa-brands fa-youtube fa-fw"></i>
+          </a>
+        </div>
       </p>
       <p class="footer-text1" data-i18n="footer.copyright"></p>
       <p class="footer-text1" data-i18n="footer.developer"></p>
@@ -189,7 +210,13 @@
 
         <h2 class="modal__title" data-i18n="popup.title"></h2>
 
-        <form id="leadForm" class="modal__form">
+        <!-- ✦ atributo data‑lead añadido -->
+        <form id="leadForm"
+              class="modal__form"
+              data-lead
+              data-origin="Pop‑up"
+              autocomplete="off">
+
           <label data-i18n="popup.nameLabel"></label>
           <input type="text" name="name" required>
 
@@ -201,9 +228,11 @@
 
           <label data-i18n="popup.msgLabel"></label>
           <textarea name="message" rows="3"
-                    data-i18n-placeholder="popup.msgPlaceholder"></textarea>
+                    placeholder="Quiero mas información sobre el proyecto…"></textarea>
 
-          <button type="submit" class="modal__send" data-i18n="popup.send"></button>
+          <button type="submit"
+                  class="modal__send"
+                  data-i18n="popup.send">Send</button>
         </form>
       </div>
     </div>

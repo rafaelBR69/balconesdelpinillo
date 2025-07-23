@@ -1,0 +1,108 @@
+{
+  "title": "Balcones del Pinillo",
+  "brand": {
+    "part1": "Balcones del ",
+    "part2": "Pinillo"
+  },
+  "nav": {
+    "home": "Home",
+    "contact": "Contact",
+    "availability": "Availability"
+  },
+  "btn": {
+    "contact": "Get in touch"
+  },
+  "hero": {
+    "welcome": "A haven between sea and sunlight",
+    "tagline": "New‑build residences in Torremolinos – Mediterranean elegance with a soul of its own"
+  },
+  "services": {
+    "title": "Balcones del Pinillo presents a living concept where light, space and design exist in perfect harmony. Clean lines, contemporary architecture and expansive terraces opening onto the landscape define this exclusive project.",
+    "subtitle": "",
+    "description": "",
+    "buy": {
+      "title": "Purchase",
+      "text": "Our seasoned team will guide you every step of the way…"
+    },
+    "learnMore": "Learn more ❯"
+  },
+  "blog": {
+    "title": "Find your ideal home",
+    "subtitle": "You’ll enjoy every convenience on your doorstep: supermarkets, schools, medical centres, pharmacies, gyms and a wealth of bars, restaurants and leisure venues. All in a vibrant, established setting where a comfortable life needn’t forego tranquillity.\nTorremolinos is open‑minded, diverse and cosmopolitan, welcoming every lifestyle with ease. Here, freedom and wellbeing come without labels.\nPerfect as a primary residence or as a holiday sanctuary for those seeking more than a house: a place that truly feels like home.",
+    "card1": {
+      "title": "Living room",
+      "location": "Ikoyi Lagos",
+      "type": "Multi‑family residence"
+    },
+    "viewDetails": "View details"
+  },
+  "footer": {
+    "contact": "Contact us: info@blancareal.com | +34 621 283 445",
+    "follow": "Follow us",
+    "copyright": "©2024 | All rights reserved",
+    "developer": "Developed by BlancaReal Marketing"
+  },
+  "project": {
+    "imgAlt": "Kitchen interior of the Torremolinos residential project",
+    "description": "This exclusive residential project in Torremolinos redefines contemporary luxury, blending architecture, natural surroundings and lifestyle in one of the Costa del Sol’s most vibrant and established areas. Just 500 m from La Carihuela beach and Benalmádena Marina, it offers an elegant seaside home for those who value quality and privacy.",
+    "featuresTitle": "Key features:",
+    "features": {
+      "homes": "20 premium homes across two independent blocks",
+      "seaViews": "Sea views from most residences",
+      "terraces": "Generous terraces (min. 15 m²; up to 60 m² with jacuzzi in penthouses)",
+      "livingRooms": "Integrated living areas bathed in natural light",
+      "amenities": "Swimming pool, landscaped areas and potential gym or multi‑use space",
+      "parking": "40 parking spaces on a single level for added convenience"
+    },
+    "locationAdvantages": "Unique 2‑, 3‑ and 4‑bedroom homes with high‑quality finishes, communal pool, gardens, gym and private parking. Everything designed for those who appreciate comfort, aesthetics and a life without haste."
+  },
+  "popup": {
+    "title": "Interested in the development?",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Telephone",
+    "msgLabel": "Message",
+    "msgPlaceholder": "I’d like more information…",
+    "send": "Send",
+    "thanksTitle": "Thank you for your interest!",
+    "thanksText": "We have received your enquiry. Our team will contact you shortly.",
+    "thanksBtn": "Close"
+  },
+  "contact": {
+    "title": "Contact | Balcones del Pinillo",
+    "heroTitle": "Get in touch with us",
+    "heroSub": "We’re only a message away",
+    "imgAlt": "Person filling in a form",
+    "formTitle": "Enter your details",
+    "infoTitle": "You can also call us",
+    "infoText": "Telephone: +34 621 283 445 · Email: info@blancareal.com"
+  },
+  "availability": {
+    "title": "Availability | Balcones del Pinillo",
+    "heroTitle": "Check availability",
+    "heroSub": "Information updated in real time",
+    "comingSoon": "Section under construction",
+    "comingSoonText": "Updated plans and prices will be available here very soon."
+  },
+  "blockA": {
+    "title": "Block A · Plans",
+    "heroTitle": "Block A",
+    "heroSub": "Select a residence",
+    "infoTitle": "Choose floor and typology",
+    "infoText": "More details and downloadable data sheets coming soon.",
+    "clickHint": "Click on a residence…"
+  },
+  "blockB": {
+    "title": "Block B · Plans",
+    "heroTitle": "Block B",
+    "heroSub": "Select a residence",
+    "infoTitle": "Choose floor and typology",
+    "infoText": "More details and downloadable data sheets coming soon.",
+    "clickHint": "Click on a residence…",
+    "imgAlt": "Floor plan of Block B residences"
+  },
+  "leadForm": {
+    "title": "Interested?",
+    "msgPlaceholderHousing": "I’d like more information about this residence…"
+  }
+}
