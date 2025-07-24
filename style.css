@@ -886,6 +886,29 @@ footer .social a:focus{
   color:#F4EBDD !important;
   /* …resto… */
 }
+/* ░░░ Botón fantasma que conserva el espacio ░░░ */
+.ghost-btn{
+  background:transparent !important;   /* nada de color */
+  color:transparent !important;        /* texto invisible */
+  border:2px solid transparent !important;
+  pointer-events:none;                 /* no se puede clicar */
+  opacity:0;                           /* por si hubiera iconos */
+}
+
+.ghost-btn:hover,
+.ghost-btn:focus{
+  opacity:0;                           /* evita que “aparezca” al pasar */
+}
+
+#langSwitcher{
+  background:#F4EBDD;
+  border:2px solid #5C4033;
+  border-radius:6px;
+  font:inherit;
+  padding:.4rem .6rem;
+  cursor:pointer;
+  color:#5C4033;
+}
 
 /* ─── Vista móvil ────────────────────────────────────────── */
 @media (max-width:900px){

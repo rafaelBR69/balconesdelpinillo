@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ESTILOS COMUNES -->
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./mediaquaries.css">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./mediaquaries.css" />
   <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  <!-- FUENTES GOOGLE -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap"
-        rel="stylesheet">
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap" rel="stylesheet" />
 
-  <!-- i18next -->
+  <!-- i18next CDN -->
   <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
   <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
   <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
 
-  <title data-i18n="blockA.title">Bloque A · Planos</title>
+  <title data-i18n="blockA.title">Bloque A · Planos</title>
 </head>
 
 <body>
 
-<!-- █ NAVBAR (copiado) █ -->
+<!-- █ NAVBAR █ -->
 <header>
   <nav>
     <div class="logo">
@@ -43,157 +42,140 @@
 
     <div class="btn">
       <a class="sign_up primary" href="contact.html#contactForm"
-        data-i18n="btn.contact"></a>
+         data-i18n="btn.contact"></a>
     </div>
+
+    <select id="langSwitcher" aria-label="Cambiar idioma">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+    </select>
   </nav>
 </header>
 
+<!-- █ HERO BLOQUE A █ -->
+<section class="section_1 section_1--availability"
+         data-json="viviendas-a.json"><!-- ruta JSON A -->
 
-
-<!-- █ HERO BLOQUE A █ -->
-<section class="section_1 section_1--availability" data-json="viviendas-a.json">
-
-  <div class="plan-container"><!-- contenedor global -->
-
-    <!-- Caja RELATIVA: sirve de referencia a todo lo superpuesto -->
+  <div class="plan-container">
     <div class="plan-box">
 
-      <!-- ✦ TEXTO DINÁMICO SUPERPUESTO (empieza vacío) -->
       <div id="info-text" class="info-text">
         <p data-i18n="blockA.clickHint">Haz clic en una vivienda…</p>
       </div>
 
-      <!-- PLANO + MAPA -->
       <img src="images/bloque.webp"
            id="blockA-img"
            usemap="#blockA-map"
-           data-i18n="[alt]blockA.imgAlt"  <!-- ✦ cambiado -->
-           alt="Plano de viviendas Bloque A">
+           alt="Plano de viviendas Bloque A" />
 
-      <!-- TÍTULOS SOBRE EL PLANO -->
       <div class="bg_div">
         <h2 class="bg_text1" data-i18n="blockA.heroTitle"></h2>
         <h2 class="bg_text2" data-i18n="blockA.heroSub"></h2>
       </div>
-    </div><!-- /plan-box -->
+    </div>
 
-    <!-- NUEVO · formulario de interés -->
+    <!-- Formulario de interés -->
     <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
-      <h3 data-i18n="leadForm.title">¿Te interesa?</h3>   <!-- ✦ cambiado -->
+      <h3 data-i18n="leadForm.title"></h3>
 
-      <label data-i18n="popup.nameLabel">
-        Nombre
-        <input type="text"  name="name"   required>
+      <label>
+        <span data-i18n="popup.nameLabel"></span>
+        <input type="text" name="name" required />
       </label>
 
-      <label data-i18n="popup.emailLabel">
-        Email
-        <input type="email" name="email"  required>
+      <label>
+        <span data-i18n="popup.emailLabel"></span>
+        <input type="email" name="email" required />
       </label>
 
-      <label data-i18n="popup.phoneLabel">
-        Teléfono
-        <input type="tel"   name="phone"  required>
+      <label>
+        <span data-i18n="popup.phoneLabel"></span>
+        <input type="tel" name="phone" required />
       </label>
 
-      <label data-i18n="popup.msgLabel">
-        Mensaje
+      <label>
+        <span data-i18n="popup.msgLabel"></span>
         <textarea name="message" rows="3"
-                  data-i18n="[placeholder]leadForm.msgPlaceholderHousing"
-                  placeholder="Quiero más información sobre esta vivienda…">
-        </textarea>
+                  data-i18n-placeholder="leadForm.msgPlaceholderHousing"></textarea>
       </label>
 
-      <button type="submit" data-i18n="popup.send">Enviar</button>
+      <button type="submit" data-i18n="popup.send"></button>
     </form>
 
-  </div><!-- /plan-container -->
+  </div>
 
-  <!-- … el resto del <map> sigue igual … -->
+  <!-- MAPA de coordenadas A -->
   <map name="blockA-map">
-    <!-- áreas -->
-  </map>
+    <area shape="poly" data-key="aBajo1" href="a-bajo-1.html"
+          coords="65,760,65,930,324,934,339,925,341,759">
+    <area shape="poly" data-key="aBajo2" href="a-bajo-2.html"
+          coords="343,761,341,924,564,925,565,762">
+    <area shape="poly" data-key="aBajo3" href="a-bajo-3.html"
+          coords="576,761,574,924,717,927,729,935,959,932,960,759">
 
+    <area shape="poly" data-key="aPrim1" href="a-primero-1.html"
+          coords="64,579,341,580,346,587,347,756,64,758">
+    <area shape="poly" data-key="aPrim2" href="a-primero-2.html"
+          coords="349,587,350,754,560,754,561,586">
+    <area shape="poly" data-key="aPrim3" href="a-primero-3.html"
+          coords="576,587,576,754,960,755,959,585">
+
+    <area shape="poly" data-key="aSeg1" href="a-segundo-1.html"
+          coords="64,575,341,576,347,583,348,428,339,413,63,412">
+    <area shape="poly" data-key="aSeg2" href="a-segundo-2.html"
+          coords="350,424,353,582,560,582,560,424">
+    <area shape="poly" data-key="aSeg3" href="a-segundo-3.html"
+          coords="577,421,577,583,961,580,958,422">
+
+    <area shape="poly" data-key="aTer1" href="a-tercero-1.html"
+          coords="58,212,58,412,338,411,347,419,347,211">
+    <area shape="poly" data-key="aTer2" href="a-tercero-2.html"
+          coords="350,211,351,417,558,416,558,224,513,224,514,210">
+    <area shape="poly" data-key="aTer3" href="a-tercero-3.html"
+          coords="577,195,578,417,962,416,961,213,741,211,738,194">
+  </map>
 </section>
 
-<!-- █ FUTURO CONTENIDO / DESCRIPCIÓN █ -->
+<!-- █ CONTENIDO FUTURO █ -->
 <section class="section_3">
   <div class="service-header reveal">
     <h1 data-i18n="blockA.infoTitle">Elige planta y tipología</h1>
-    <p  data-i18n="blockA.infoText">Próximamente más detalles y fichas
-      descargables.</p>
+    <p  data-i18n="blockA.infoText">Próximamente más detalles y fichas descargables.</p>
   </div>
 </section>
 
-<!-- █ FOOTER (idéntico) █ -->
+<!-- █ FOOTER █ -->
 <footer>
   <p data-i18n="footer.contact"></p>
   <p>
     <span data-i18n="footer.follow"></span><br>
     <div class="social">
-          <a href="https://www.instagram.com/blancarealspain/?hl=es"
-            target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fa-brands fa-instagram fa-fw"></i>
-          </a>
-
-          <a href="https://es.linkedin.com/company/blancareal-real-estate"
-            target="_blank" rel="noopener" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin fa-fw"></i>
-          </a>
-
-          <!-- Icono globo (sitio web oficial) -->
-          <a href="https://www.blancareal.com/"
-            target="_blank" rel="noopener" aria-label="Sitio web">
-            <i class="fa-solid fa-globe fa-fw"></i>
-          </a>
-
-          <!-- Icono YouTube -->
-          <a href="https://www.youtube.com/@BlancaRealSpain"
-            target="_blank" rel="noopener" aria-label="YouTube">
-            <i class="fa-brands fa-youtube fa-fw"></i>
-          </a>
-        </div>
+      <a href="https://www.instagram.com/blancarealspain/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram fa-fw"></i></a>
+      <a href="https://es.linkedin.com/company/blancareal-real-estate" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin fa-fw"></i></a>
+      <a href="https://www.blancareal.com/" target="_blank" aria-label="Sitio web"><i class="fa-solid fa-globe fa-fw"></i></a>
+      <a href="https://www.youtube.com/@BlancaRealSpain" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube fa-fw"></i></a>
+    </div>
   </p>
   <p class="footer-text1" data-i18n="footer.copyright"></p>
   <p class="footer-text1" data-i18n="footer.developer"></p>
 </footer>
 
-<!-- 1. jQuery -->
+<!-- LIBRERÍAS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<!-- 2. ImageMapster -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
-<!-- 3. PDF.js -->
 <script src="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
-<script>
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    "https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js";
-</script>
+<script>pdfjsLib.GlobalWorkerOptions.workerSrc="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js";</script>
 
-<!-- 4. Tu código principal -->
+<!-- App principal -->
 <script src="./app.js"></script>
 
-<!-- 5. Inicialización de i18next -->
+<!-- i18next (misma lógica que Bloque B) -->
 <script>
-  /*  Esta función actualiza tanto innerHTML como atributos [placeholder] / [alt]  */
   function renderPage () {
-    /* ① nodos con texto interno */
-    document.querySelectorAll('[data-i18n]:not([data-i18n*="[")')
-      .forEach(el => el.innerHTML = i18next.t(el.dataset.i18n));
-
-    /* ② nodos con sintaxis [attr]clave */
-    document.querySelectorAll('[data-i18n*="["]')
-      .forEach(el => {
-        el.dataset.i18n.split(';').forEach(p => {
-          const m = p.match(/^\s*\[([^\]]+)]\s*(.+)$/);
-          if (m) {
-            const attr = m[1];
-            const key  = m[2];
-            el.setAttribute(attr, i18next.t(key));
-          }
-        });
-      });
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.innerHTML = i18next.t(el.dataset.i18n);
+    });
   }
-
   i18next
     .use(i18nextHttpBackend)
     .use(i18nextBrowserLanguageDetector)
@@ -202,9 +184,7 @@
       load        : 'languageOnly',
       backend     : { loadPath : 'langs/{{lng}}.json' }
     }, renderPage);
-
   i18next.on('languageChanged', renderPage);
 </script>
-
 </body>
 </html>

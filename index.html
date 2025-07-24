@@ -50,6 +50,10 @@
           <a class="sign_up primary" href="contact.html#contactForm"
             data-i18n="btn.contact">Contactar</a>
         </div>
+        <select id="langSwitcher" aria-label="Cambiar idioma">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
       </nav>
     </header>
     <!--*** End navbar ***-->
@@ -227,8 +231,8 @@
           <input type="tel" name="phone" required>
 
           <label data-i18n="popup.msgLabel"></label>
-          <textarea name="message" rows="3"
-                    placeholder="Quiero mas información sobre el proyecto…"></textarea>
+          <textarea name="message" rows="4"
+              data-i18n-placeholder="popup.msgPlaceholder"></textarea>
 
           <button type="submit"
                   class="modal__send"
@@ -255,6 +259,7 @@
       </div>
     </div>
 
+    <script src="/js/il18n.js"></script>
     <script src="./app.js"></script>
 
   </body>

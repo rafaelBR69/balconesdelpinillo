@@ -104,5 +104,19 @@
   "leadForm": {
     "title": "¿Te interesa?",
     "msgPlaceholderHousing": "Quiero más información sobre esta vivienda…"
+  },
+  "blockInfo": {
+    "noData": "Sin datos…",
+    "pdfUnavailable": "Plano no disponible",
+    "rooms_one": "{{count}} habitación",
+    "rooms_other": "{{count}} habitaciones",
+    "builtArea": "{{value}} m² construidos",
+    "terrace": "{{value}} m² terraza",
+    "orientation": "Orientación {{dir}}",
+    "status": {
+      "reservado": "Reservado",
+      "vendido": "Vendido",
+      "disponible": "Disponible"
+    }
   }
 }

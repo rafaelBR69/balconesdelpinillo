@@ -45,6 +45,10 @@
       <a class="sign_up primary" href="contact.html#contactForm"
         data-i18n="btn.contact"></a>
     </div>
+    <select id="langSwitcher" aria-label="Cambiar idioma">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+    </select>
   </nav>
 </header>
 
@@ -75,31 +79,36 @@
 
     <!-- NUEVO · formulario de interés -->
     <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
-      <h3>¿Te interesa?</h3>
+      <!-- título -->
+      <h3 data-i18n="leadForm.title"></h3>
 
+      <!-- Nombre -->
       <label>
-        Nombre
-        <input type="text"  name="name"   required>
+        <span data-i18n="popup.nameLabel"></span>
+        <input type="text" name="name" required>
       </label>
 
+      <!-- Email -->
       <label>
-        Email
-        <input type="email" name="email"  required>
+        <span data-i18n="popup.emailLabel"></span>
+        <input type="email" name="email" required>
       </label>
 
+      <!-- Teléfono -->
       <label>
-        Teléfono
-        <input type="tel"   name="phone"  required>
+        <span data-i18n="popup.phoneLabel"></span>
+        <input type="tel" name="phone" required>
       </label>
 
+      <!-- Mensaje -->
       <label>
-        Mensaje
+        <span data-i18n="popup.msgLabel"></span>
         <textarea name="message" rows="3"
-                  placeholder="Quiero más información sobre esta vivienda…">
-        </textarea>
+                  data-i18n-placeholder="leadForm.msgPlaceholderHousing"></textarea>
       </label>
 
-      <button type="submit">Enviar</button>
+      <!-- Botón -->
+      <button type="submit" data-i18n="popup.send"></button>
     </form>
     
   </div>

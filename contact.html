@@ -37,8 +37,12 @@
     </ul>
 
     <div class="btn">
-      <a class="sign_up" href="#contactForm" data-i18n="btn.contact"></a>
+      <a class="sign_up ghost-btn" href="#contactForm" data-i18n="btn.contact"></a>
     </div>
+    <select id="langSwitcher" aria-label="Cambiar idioma">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+    </select>
   </nav>
 </header>
 
@@ -108,6 +112,7 @@
 </footer>
 
 <!-- i18next init + scroll reveal + pop-up JS de index -->
+<script src="/js/il18n.js"></script>
 <script src="./app.js"></script>
 <script>
   // misma inicialización i18next que en index.html

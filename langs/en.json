@@ -10,7 +10,7 @@
     "availability": "Availability"
   },
   "btn": {
-    "contact": "Get in touch"
+    "contact": "Contact us"
   },
   "hero": {
     "welcome": "A haven between sea and sunlight",
@@ -47,7 +47,7 @@
     "description": "This exclusive residential project in Torremolinos redefines contemporary luxury, blending architecture, natural surroundings and lifestyle in one of the Costa del Sol’s most vibrant and established areas. Just 500 m from La Carihuela beach and Benalmádena Marina, it offers an elegant seaside home for those who value quality and privacy.",
     "featuresTitle": "Key features:",
     "features": {
-      "homes": "20 premium homes across two independent blocks",
+      "homes": "20 premium homes across two independent buildings",
       "seaViews": "Sea views from most residences",
       "terraces": "Generous terraces (min. 15 m²; up to 60 m² with jacuzzi in penthouses)",
       "livingRooms": "Integrated living areas bathed in natural light",
@@ -85,24 +85,38 @@
     "comingSoonText": "Updated plans and prices will be available here very soon."
   },
   "blockA": {
-    "title": "Block A · Plans",
-    "heroTitle": "Block A",
+    "title": "Building A · Plans",
+    "heroTitle": "Building A",
     "heroSub": "Select a residence",
     "infoTitle": "Choose floor and typology",
     "infoText": "More details and downloadable data sheets coming soon.",
     "clickHint": "Click on a residence…"
   },
   "blockB": {
-    "title": "Block B · Plans",
-    "heroTitle": "Block B",
+    "title": "Building B · Plans",
+    "heroTitle": "Building B",
     "heroSub": "Select a residence",
     "infoTitle": "Choose floor and typology",
     "infoText": "More details and downloadable data sheets coming soon.",
     "clickHint": "Click on a residence…",
-    "imgAlt": "Floor plan of Block B residences"
+    "imgAlt": "Floor plan of Building B residences"
   },
   "leadForm": {
-    "title": "Interested?",
+    "title": "Are you interested?",
     "msgPlaceholderHousing": "I’d like more information about this residence…"
+  },
+  "blockInfo": {
+    "noData": "No data…",
+    "pdfUnavailable": "Plan not available",
+    "rooms_one": "{{count}} bedroom",
+    "rooms_other": "{{count}} bedrooms",
+    "builtArea": "{{value}} m² built",
+    "terrace": "{{value}} m² terrace",
+    "orientation": "Orientation {{dir}}",
+    "status": {
+      "reservado": "Reserved",
+      "vendido": "Sold",
+      "disponible": "Available"
+    }
   }
 }
