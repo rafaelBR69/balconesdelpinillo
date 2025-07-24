@@ -245,32 +245,33 @@ window.addEventListener('load', () => {
     tercero : 'planos/plano-tercero.pdf'
   };
 
-  function mostrarInfo(viviendas, key) {
+  function mostrarInfo (viviendas, key) {
     const d = viviendas[key];
-    if (!d) { $out.html('<p>Sin datos…</p>'); return; }
+    if (!d) {
+      $out.html(`<p>${i18next.t('blockInfo.noData')}</p>`);
+      return;
+    }
 
-    const planta = /bajo/i.test(key) ? 'bajo'     :
-                   /prim/i.test(key) ? 'primero'  :
-                   /seg/i.test(key)  ? 'segundo'  :
-                   /ter/i.test(key)  ? 'tercero'  : null;
+    const planta = /bajo/i.test(key) ? 'bajo' :
+                  /prim/i.test(key) ? 'primero' :
+                  /seg/i.test(key)  ? 'segundo' :
+                  /ter/i.test(key)  ? 'tercero' : null;
 
     $out.html(`
       <div class="info-card">
         <h3>
           ${d.nombre}
           <span class="badge badge-${d.estado}">
-            ${d.estado.toUpperCase()}
+            ${i18next.t('blockInfo.status.' + d.estado)}
           </span>
         </h3>
 
         <ul>
-          <li>${d.habit} habitaciones</li>
-          <li>${d.m2} m² construidos</li>
-          <li>${d.terraza} m² terraza</li>
-          <li>Orientación ${d.orientacion}</li>
-          <li class="precio">
-            <span id="price-value">0 €</span>
-          </li>
+          <li>${i18next.t('blockInfo.rooms', { count: d.habit })}</li>
+          <li>${i18next.t('blockInfo.builtArea',  { value: d.m2 })}</li>
+          <li>${i18next.t('blockInfo.terrace',{ value: d.terraza })}</li>
+          <li>${i18next.t('blockInfo.orientation', { dir: d.orientacion })}</li>
+          <li class="precio"><span id="price-value">0 €</span></li>
         </ul>
 
         <div id="plano-preview" class="pdf-preview"></div>
@@ -281,7 +282,7 @@ window.addEventListener('load', () => {
     if (planta && PLANOS[planta]) {
       renderPdfPreview(PLANOS[planta], $('#plano-preview'));
     } else {
-      $('#plano-preview').text('Plano no disponible');
+      $('#plano-preview').text(i18next.t('blockInfo.pdfUnavailable'));
     }
 
     /* contador animado del precio */
