@@ -114,23 +114,6 @@
 <!-- i18next init + scroll reveal + pop-up JS de index -->
 <script src="/js/il18n.js"></script>
 <script src="./app.js"></script>
-<script>
-  // misma inicialización i18next que en index.html
-  function renderPage(){
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      el.innerHTML = i18next.t(el.dataset.i18n);
-    });
-    // placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
-      el.placeholder = i18next.t(el.dataset.i18nPlaceholder);
-    });
-  }
-  i18next.use(i18nextHttpBackend).use(i18nextBrowserLanguageDetector).init({
-    fallbackLng:'es',
-    load:'languageOnly',
-    backend:{loadPath:'langs/{{lng}}.json'}
-  },renderPage);
-  i18next.on('languageChanged',renderPage);
-</script>
+
 </body>
 </html>

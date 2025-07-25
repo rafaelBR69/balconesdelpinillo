@@ -422,6 +422,7 @@
     align-items: center;
     padding-block: 0;        /* sin franja crema */
     gap: 0;
+    margin-top: var(--header-h);
   }
 
   /* Títulos (bg_div) reincorporados al flujo normal */
@@ -472,6 +473,12 @@
   #info-text { 
     margin-top: .8rem;
   }
+  .info-card{          /* tarjeta con datos de la vivienda */
+    margin-bottom:1.4rem;   /* aire hacia abajo             */
+  }
+  .lead-card{          /* formulario “Are you interested?” */
+    margin-top:1.4rem;      /* aire hacia arriba            */
+  }
 }
 
 /* ───────── VERSIÓN MÓVIL ───────── */
@@ -489,4 +496,133 @@
     flex-direction:column;
     align-items:center;
   }
+}
+
+/* ==========================================================
+   4K / Ultra‑HD  – a partir de 2560 px de ancho
+   ========================================================== */
+@media (min-width: 2560px) {
+
+  /* 1 ▸ Escalado tipográfico base */
+  html            { font-size: 87.5%; }    /* 1 rem = 14 px aprox. */
+
+  /* 2 ▸ Barra de navegación */
+  .logo           { font-size: 4rem; margin-right: 25rem; }
+  .nav-links li   { font-size: 2.2rem; margin-right: 5rem; }
+  .btn a          { font-size: 2rem; }
+
+  /* 3 ▸ Hero */
+  .bg_div :first-child { font-size: 9rem; } /* título grande */
+  .bg_div :last-child  { font-size: 3rem; } /* subtítulo    */
+
+  /* 4 ▸ Bloques imagen‑texto */
+  .img-text {
+    --gap: 14rem;              /* aire entre img y texto          */
+    --img-basis: 36%;          /* ancho inicial de la imagen      */
+    --img-max: 840px;          /* máximo de la imagen             */
+    --line: 2;                 /* interlineado más relajado       */
+    --padding: 3.5rem 4rem;    /* relleno interior del bloque     */
+  }
+  .img-text__title,
+  .img-text__subtitle         { font-size: 3rem; }
+  .img-text__list li,
+  .img-text__paragraph        { font-size: 2.6rem; }
+
+  /* 5 ▸ Secciones de texto */
+  .service-header h1          { font-size: 4rem; }
+  .service-header p           { font-size: 2.4rem; max-width: 1600px; }
+
+  /* 6 ▸ Footer y otros detalles */
+  footer :nth-child(1),
+  footer :nth-child(2)        { font-size: 2.8rem; }
+  .footer-text1               { font-size: 2.4rem; }
+  #langSwitcher               { font-size: 1.8rem; }
+
+  /* 7 ▸ Formularios / modales */
+  .modal__title               { font-size: 3.2rem; }
+  .modal__form label          { font-size: 2rem; }
+}
+
+/* Opcional: ajustes finos solo para 3840×2160 */
+@media (min-width: 3840px) {
+
+  /* 1 ▸ Sube un poco más la base */
+  html        { font-size: 100%; }   /* 1 rem = 16 px */
+
+  /* 2 ▸ Recoloca títulos sobre planos */
+  .bg_div     { top: 35%; }
+
+  /* 3 ▸ Tarjeta de formulario junto al plano */
+  .lead-card  {
+    --card-top: 20%;
+    left: calc(100% + 6rem);
+    max-width: 520px;
+  }
+}
+
+/* ============================
+   PANEL LATERAL EN MÓVIL
+   ============================ */
+@media (max-width: 1200px){
+
+  /* contenedor del menú */
+  .nav-links{
+    position: fixed;      /* sale del flujo */
+    top: 0;
+    right: 0;             /* ⇦ empújalo desde la derecha.
+                             Cambia a left:0 si lo quieres por la izda */
+    height: 100vh;
+    width: 55vw;          /* ancho del cajón (70 % de pantalla)        */
+    max-width: 320px;     /* …o un tope fijo                            */
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background : rgba(255,255,255,.55);
+    backdrop-filter        : blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-left : 1px solid rgba(255,255,255,.35);
+    box-shadow  : -4px 0 18px rgba(0,0,0,.12);
+
+    /* efecto deslizante --------------------------------- */
+    transform: translateX(100%);    /* oculto fuera de vista */
+    transition: transform .35s ease;
+    z-index: 1000;
+    padding-left: 2.4rem;
+  }
+
+  /* cuando JS añade .active → se ve */
+  .nav-links.active{
+    transform: translateX(0);
+  }
+
+  /* enlaces grandes y separados */
+  .nav-links li{
+    margin: 1.6rem 0;
+  }
+  .nav-links a{
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #5C4033;
+  }
+
+  /* ▸ hamburguesa visible */
+  .burgar{ display:block; }
+
+  /* ▸ botón CTA / switcher: ocúltalos si estorban */
+  .btn,
+  #langSwitcher{
+    display:none;
+  }
+
+  /* cuerpo no se desplaza al abrir menú (opcional) */
+  body.nav-open{
+    overflow:hidden;
+  }
+}
+
+/*   móvil: encoge ligeramente si quieres   */
+@media (max-width:600px){
+  .logo img{ height: 36px; }
 }

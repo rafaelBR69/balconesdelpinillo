@@ -90,7 +90,8 @@
     "heroSub": "Select a residence",
     "infoTitle": "Choose floor and typology",
     "infoText": "More details and downloadable data sheets coming soon.",
-    "clickHint": "Click on a residence…"
+    "clickHint": "Click on a residence…",
+    "imgAlt": "Floor plan of Building A residences"
   },
   "blockB": {
     "title": "Building B · Plans",

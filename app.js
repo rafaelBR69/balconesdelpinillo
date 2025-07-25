@@ -234,6 +234,7 @@ window.addEventListener('load', () => {
       $img.mapster('resize', $img.parent().width(), 0, 0);
     });
   }
+  
 
   /* ------- 3 · Tarjeta de información + PDF + contador ------- */
 

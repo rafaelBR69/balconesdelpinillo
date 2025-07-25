@@ -21,7 +21,7 @@
   <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
   <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
 
-  <title data-i18n="blockA.title">Bloque B · Planos</title>
+  <title data-i18n="blockB.title">Bloque B · Planos</title>
 </head>
 
 <body>
@@ -191,26 +191,10 @@
       "https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js";
   </script>
 
+  <script src="/js/il18n.js"></script>
+
   <!-- 4. Tu código principal -->
   <script src="./app.js"></script>
-
-  <!-- 5. Inicialización de i18next (si la quieres al final) -->
-  <script>
-    function renderPage(){
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        el.innerHTML = i18next.t(el.dataset.i18n);
-      });
-    }
-    i18next
-      .use(i18nextHttpBackend)
-      .use(i18nextBrowserLanguageDetector)
-      .init({
-        fallbackLng:'es',
-        load:'languageOnly',
-        backend:{loadPath:'langs/{{lng}}.json'}
-      }, renderPage);
-    i18next.on('languageChanged', renderPage);
-  </script>
 
 </body>
 </html>

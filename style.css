@@ -6,45 +6,146 @@
 
 html {
   font-size: 62.5%;
-  font-family: "manrope", sans-serif;
+  font-family: "montserrat", sans-serif;
   overflow-x: hidden;
 }
 body {
   overflow-x: hidden;
   background-color: #F4EBDD;
 }
-/* Navbar styling */
-header {
-  background-color: #F4EBDD;
-  padding: 2rem 1rem;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+/* =========================================================
+   ▸ HEADER / NAVBAR  ⤵  solo estilos de la cabecera
+   ========================================================= */
+
+/* helpers globales (colores, alto fijo, etc.) -------------- */
+:root{
+  --header-h      : 100px;        /* alto de la barra */
+  --header-bg     : #F4EBDD;      /* crema corporativo */
+  --brand-color   : #5C4033;      /* marrón corporativo */
+  --shadow-hdr    : 3px 3px 5px rgba(0,0,0,.7);
+  --field-bg      : rgba(255, 255, 255, 0.85);  /* fondo de los campos */
+  --field-text    : #4c362a;  /* color del texto del usuario    */
+  --field-bord    : #c08f5c;  /* color del borde                */
+  --field-size    : 1.55rem;  /* tamaño de fuente en los campos */
+  --card-top: 12%;
+  --header-h: 100px;
+  --ff-display : 'Cormorant Garamond', serif;   /* títulos “elegantes”   */
+  --ff-body    : 'Montserrat', sans-serif;      /* texto general / UI    */
+  --fs-nav     : 1.6rem;   /* tamaño enlaces / idioma                */
+  --fs-btn     : 1.5rem;   /* tamaño botón “Contact”                 */
+  --fw-nav     : 550; 
 }
+
+/* ---------- contenedor fijo ---------- */
+header{
+  position : fixed;
+  top      : 0; left: 0;
+  width    : 100%;
+  height   : var(--header-h);
+  padding  : 2rem 1rem;
+  background: var(--header-bg);
+  box-shadow: var(--shadow-hdr);
+  z-index   : 10;
+}
+header,
+header *{                           /* cualquier hijo del header */
+  font-family: var(--ff-body);
+}
+
+/* ---------- flex interno ---------- */
+nav{
+  display        : flex;
+  justify-content: space-between;    /* logo | nav | botones */
+  align-items    : center;
+  height         : 100%;
+}
+
+/* ---------- LOGO ---------- */
+.logo{
+  display: block;               /* evita inline‑gap */
+  margin-right: 2rem;           /* separación con los enlaces */
+}
+.logo img{
+  height: 152px;                 /* ajusta aquí el tamaño visible */
+  width : auto;
+  object-fit: contain;
+}
+
+/* ---------- MENÚ DE ENLACES ---------- */
+.nav-links{
+  display    : flex;
+  list-style : none;
+  gap        : 3rem;            /* distancia entre <li> */
+  padding    : 0;               /* ya tienes margin‑gap arriba */
+}
+
+
+.nav-links a{
+  font-size  : var(--fs-nav);
+  font-weight: var(--fw-nav);
+  color: var(--brand-color);
+  text-decoration: none;
+  transition: opacity .25s;
+}
+.nav-links a:hover{ opacity:.8; }
+.nav-links a:active{ outline: none; }
+
+/* ---------- BOTÓN “Contact” ---------- */
+.btn{
+  margin-left: 8rem;            /* separa del menú */
+  transition: opacity .25s;
+}
+.btn .sign_up{
+  display:inline-block;
+  font-size  : var(--fs-btn);
+  font-weight: var(--fw-nav);
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: var(--brand-color);
+  color: var(--header-bg);
+  text-decoration: none;
+}
+.btn .sign_up:hover{ opacity:.8; }
+
+/* ---------- HAMBURGUESA (esconde en desktop) ---------- */
+.burgar{
+  font-size  : 3rem;
+  font-weight: bold;
+  color      : var(--brand-color);
+  display    : none;             /* se mostrará vía media‑query */
+  cursor     : pointer;
+}
+
+/* ---------- SELECTOR DE IDIOMA ---------- */
+#langSwitcher{
+  font-size  : var(--fs-nav);
+  font-weight: var(--fw-nav);
+  background   : var(--header-bg);
+  border       : 2px solid var(--brand-color);
+  border-radius: 6px;
+  padding      : .4rem .6rem;
+  font         : inherit;
+  color        : var(--brand-color);
+  cursor       : pointer;
+}
+
+/* ---------- ESTADOS GENERALES ---------- */
+.nav-links a,
+.btn .sign_up,
+#langSwitcher{
+  /* garantizamos herencia de fuente base */
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ---------- UTILIDAD: evitar scroll cuando el menú móvil está abierto ---------- */
+body.nav-open{ overflow:hidden; }
+
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.logo {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #5C4033;
-  margin-right: 15rem;
-  margin-left: 5rem;
-}
-.burgar {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #5C4033;
-  display: none;
-}
-.nav-links {
-  display: flex;
-  list-style: none;
-  padding-left: 5rem;
-}
+
 .nav-links li {
   margin-right: 3rem;
   text-decoration: none;
@@ -76,34 +177,6 @@ nav {
   color: #5C4033;
   outline: none;
 }
-.btn {
-  margin-left: 8rem;
-  transition: 0.5s all ease;
-}
-.btn a {
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-.btn :first-child {
-  transform: scale(1.05);
-}
-.btn :first-child {
-  background-color: #5C4033;
-  color: #F4EBDD;
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin-right: 2rem;
-}
-.btn :last-child {
-  border: 2px solid #5C4033;
-  color: #F4EBDD;
-  padding: 8px 20px;
-  border-radius: 20px;
-  margin-right: 2rem;
-}
-/* Navbar section stop */
 
 /* Hero section styling */
 .section_1 {
@@ -131,10 +204,18 @@ nav {
   z-index: 1;
   pointer-events: none;
 }
-.bg_text1,
-.bg_text2 {
+.bg_text1{
+  font-family: var(--ff-display);
+  font-weight: 530;
   color: #F4EBDD;
   text-shadow: 2px 2px 6px #5C4033;
+}
+
+.bg_text2 {
+  font-family: var(--ff-body);
+  color: #F4EBDD;
+  text-shadow: 2px 2px 6px #5C4033;
+  font-weight: 300;
 
 }
 .bg_div {
@@ -212,6 +293,9 @@ nav {
 
 /*──────── Contenido ────────*/
 .img-text__body {
+  font-family: var(--ff-body);
+  font-size: 2.2rem;
+  font-weight: 300;
   flex: 1;
   /* Interlineado y anchura máxima del texto para legibilidad */
   line-height: var(--line, 1.9);
@@ -221,8 +305,9 @@ nav {
 
 /* Título del bloque imagen-texto */
 .img-text__title {
+  font-family: var(--ff-body);
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 300;
   color: #5C4033;
   padding-top: 40px;
 }
@@ -244,19 +329,23 @@ nav {
 
 /* ▸ LISTA SIN VIÑETA NATIVA + ESPACIADO PERSONALIZADO */
 .img-text__list {
+  font-family: var(--ff-body);
   list-style: none;       /* ⬅️   elimina los puntos negros */
   padding: 0;             /* reiniciamos sangría del <ul>   */
   margin: 0 0 1.5rem;
-  font-weight: 500;
+  font-weight: 300;
+  font-size: 2.2rem;
   color: #5C4033;
 }
 
 .img-text__list li {
+  font-family: var(--ff-body);
   position: relative;
-  padding-left: 1.8rem;   /* ⬅️  distancia texto-icono (ajusta aquí) */
+  padding-left: 2.2rem;   /* ⬅️  distancia texto-icono (ajusta aquí) */
+  font-weight: 300;
   margin-bottom: 0.45rem;
   color: #5C4033;
-  font-size: 2.0rem;        /* escala real; subiste antes a 1.95 rem   */
+  font-size: 2.2rem;        /* escala real; subiste antes a 1.95 rem   */
 }
 
 /* viñeta “▹” personalizada */
@@ -272,9 +361,10 @@ nav {
 
 /* Párrafos finales */
 .img-text__paragraph {
+  font-family: var(--ff-body);
   margin-block: 1rem;
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 300;
   color: #5C4033;
 }
 
@@ -299,13 +389,16 @@ nav {
   padding-right: 2rem;
 }
 .service-header h1 {
+  font-family: var(--ff-body);
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 300;
   color: #5C4033;
   padding-top: 40px;
 }
 .service-header h2 {
-  font-size: 1.7rem;
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 2.2rem;
   padding-top: 15px;
   color: #3d3b3b;
 }
@@ -374,15 +467,17 @@ nav {
   margin-bottom: 6rem;
 }
 .blog-header h1 {
+  font-family: var(--ff-display);
   padding-top: 8rem;
-  font-size: 3rem;
+  font-size: 3.6rem;
   color: #5C4033;
   line-height: 1.6;
   font-weight: 900;
 }
 .blog-header p {
-  font-size: 1.9rem;
-  font-weight: 600;
+  font-family: var(--ff-body);
+  font-size: 2.2rem;
+  font-weight: 300;
   color: #5C4033;
   line-height: 2;
   max-width: 1200px;
@@ -495,7 +590,13 @@ footer :nth-child(2) {
   text-align: center;
 }
 
-.modal__title  { font-size: 2.2rem; color:#5C4033; margin-bottom:2rem; }
+.modal__title  {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: 2.2rem;
+  color:#5C4033; 
+  margin-bottom:2rem; 
+  }
 .modal__form   { display:flex; flex-direction:column; gap:1.2rem; }
 .modal__form label  { font-size:1.4rem; color:#5C4033; display:flex; flex-direction:column; gap:.4rem; }
 .modal__form input,
@@ -558,23 +659,16 @@ footer :nth-child(2) {
 
 /*──────── Título ────────*/
 .hero-form__title {
+  font-family: var(--ff-display); 
   font-size: 2.9rem;        /* ← TAMAÑO de fuente del título   */
-  font-weight: 700;
+  font-weight: 600;
   color: #F4EBDD;           /* ← COLOR del título              */
   text-shadow: 2px 2px 6px #5C4033;
   margin: 0 0 1.2rem;
   text-align: center;
 }
 
-/*──────── Campos ────────*/
-:root {
-  /* Colores y tamaños que puedes cambiar cómodamente */
-  --field-bg : rgba(255, 255, 255, 0.85);  /* fondo de los campos            */
-  --field-text : #4c362a;  /* color del texto del usuario    */
-  --field-bord : #c08f5c;  /* color del borde                */
-  --field-size : 1.55rem;  /* tamaño de fuente en los campos */
-  --card-top: 12%;
-}
+
 
 .hero-form input,
 .hero-form textarea {
@@ -589,13 +683,16 @@ footer :nth-child(2) {
 
 /*──────── Botón (ya hereda .modal__send) ────────*/
 .hero-form .modal__send {
+  font-family: var(--ff-body);
+  font-weight: 450; 
   background: #5C4033;      /* cambia aquí si quieres otro color */
 }
 
 .hero-form label {
+  font-family: var(--ff-body); 
   font-size: 1.8rem;      /* ← TAMAÑO de letra  (ajústalo)  */
   color: #F4EBDD;         /* ← COLOR del texto (cámbialo)   */
-  font-weight: 600;       /* opcional: negrita              */
+  font-weight: 450;       /* opcional: negrita              */
   text-shadow: 1px 1px 3px #5C4033; /* opcional: sombra sutil */
 }
 
@@ -609,6 +706,8 @@ footer :nth-child(2) {
 .section_1--availability{
   background-image: none;
   background-color: #F4EBDD;
+  height: auto !important;
+  min-height: 110vh;
 }
 
 .section_1--availability::before{
@@ -620,7 +719,7 @@ footer :nth-child(2) {
 ──────────────────────────────────────────*/
 .section_1--availability .bg_div{
   /* misma mecánica ⤵  (centro X -50 / -50)  */
-  top: 12%;                     /* súbelo; prueba 8-15 % a tu gusto   */
+  top: 17%;                     /* súbelo; prueba 8-15 % a tu gusto   */
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -900,15 +999,29 @@ footer .social a:focus{
   opacity:0;                           /* evita que “aparezca” al pasar */
 }
 
-#langSwitcher{
-  background:#F4EBDD;
-  border:2px solid #5C4033;
-  border-radius:6px;
-  font:inherit;
-  padding:.4rem .6rem;
-  cursor:pointer;
-  color:#5C4033;
+/*════════════════════════════════════════════
+  FOOTER → tipografías corporativas
+════════════════════════════════════════════*/
+
+/* texto general del pie (dirección, copyright, developer…) */
+footer,
+footer p,
+footer .footer-text1{
+  font-family: var(--ff-body);   /* Montserrat */
+  font-weight: 400;
 }
+
+/* titular “Contáctanos / Síguenos” (si quieres resaltarlo) */
+footer p:first-of-type{
+  font-family: var(--ff-body);/* Cormorant Garamond */
+  font-weight: 500;
+}
+
+/* iconos sociales: sólo hereden color, no cambies la fuente */
+footer .social a{
+  font-family: unset;
+}
+
 
 /* ─── Vista móvil ────────────────────────────────────────── */
 @media (max-width:900px){

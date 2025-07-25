@@ -90,7 +90,8 @@
     "heroSub"   : "Selecciona una vivienda",
     "infoTitle" : "Elige planta y tipología",
     "infoText"  : "Próximamente más detalles y fichas descargables.",
-    "clickHint" : "Haz clic en una vivienda…"
+    "clickHint" : "Haz clic en una vivienda…",
+    "imgAlt": "Plano de viviendas Bloque A"
   },
   "blockB": {
     "title"     : "Bloque B · Planos",
