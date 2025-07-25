@@ -25,7 +25,7 @@ body {
   --shadow-hdr    : 3px 3px 5px rgba(0,0,0,.7);
   --field-bg      : rgba(255, 255, 255, 0.85);  /* fondo de los campos */
   --field-text    : #4c362a;  /* color del texto del usuario    */
-  --field-bord    : #c08f5c;  /* color del borde                */
+  --field-bord    : #c0905c8e;  /* color del borde                */
   --field-size    : 1.55rem;  /* tamaño de fuente en los campos */
   --card-top: 12%;
   --header-h: 100px;
@@ -66,7 +66,7 @@ nav{
   margin-right: 2rem;           /* separación con los enlaces */
 }
 .logo img{
-  height: 152px;                 /* ajusta aquí el tamaño visible */
+  height: 212px;                 /* ajusta aquí el tamaño visible */
   width : auto;
   object-fit: contain;
 }

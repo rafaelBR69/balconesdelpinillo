@@ -24,9 +24,11 @@
 <!-- ███ NAVBAR (idéntica) ███ -->
 <header>
   <nav>
-    <div class="logo">
-      <span data-i18n="brand.part1"></span><span data-i18n="brand.part2"></span>
-    </div>
+    <a class="logo" href="index.html">
+      <!-- usa ruta relativa al proyecto, no rutas locales de Windows -->
+      <img src="/images/logo.png"
+          alt="Balcones del Pinillo">
+    </a>
 
     <div class="burgar" onclick="toggleNav()">&#9776;</div>
 
