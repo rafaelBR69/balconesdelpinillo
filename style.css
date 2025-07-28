@@ -185,7 +185,7 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 120vh;
+  height: 130vh;
   width: 100%;
   max-width: 100%;
   z-index: 0;
@@ -221,7 +221,7 @@ nav {
 .bg_div {
   position: absolute;
   text-align: center;
-  top: 30%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -235,7 +235,7 @@ nav {
 
 .bg_div :last-child {
   font-size: 1.8rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   animation: slideinBottom 4s ease;
 }
 @keyframes slideinBottom {
@@ -578,6 +578,12 @@ footer :nth-child(2) {
 }
 
 /* ---------- Caja central ---------- */
+.hp-wrapper{
+  position:absolute !important;
+  left:-9999px;                /* fuera de pantalla  */
+  width:1px; height:1px;       /* mínimo “hit area”  */
+  overflow:hidden;
+}
 .modal__box {
   position: relative;
   background: #F4EBDD;
@@ -759,7 +765,7 @@ area:focus{
 /* Títulos (ya los tenías) */
 .plan-box .bg_div{
   position:absolute;
-  left:50%; top:12%;
+  left:50%; top:15%;
   transform:translate(-50%,-50%);
   text-align:center;
 }
@@ -780,16 +786,17 @@ area:focus{
 }
 
 .info-text h3{
+  font-family: var(--ff-body);
   margin:.2rem 0 .7rem;
   font-size:2rem;       /* antes heredaba ≈1.6 rem */
   color:#5C4033;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .info-text li{
   font-size:2rem;    /* sube cada línea un 10-15 % */
   line-height:1.55;     /* mantiene la separación */
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* lista */
@@ -832,19 +839,32 @@ area:focus{
   Tarjeta informativa de la vivienda
 ──────────────────────────────────────────────*/
 .info-card{
+  font-family: var(--ff-body);
   background:#fff;                       /* tarjeta clara */
   border-radius:12px;
   padding:1.6rem 2rem;
   box-shadow:0 6px 18px rgba(0,0,0,.12); /* sombra suave */
   max-width:320px;                       /* anchura máx. */
   margin-inline:auto;                    /* centrada */
-  animation:popIn .35s ease;             /* entrada */
+  animation:popIn .35s ease;  
+  font-weight: 300;           /* entrada */
   top: var(--card-top);
 }
 
+.info-card h3{
+  font-family: var(--ff-body);
+}
 /* lista sin viñeta nativa */
-.info-card ul{list-style:none;padding-left:0;margin:0 0 1rem}
-.info-card li{margin-bottom:.35rem}
+.info-card ul{
+  list-style:none;
+  padding-left:0;
+  margin:0 0 1rem;
+  font-family: var(--ff-body);
+}
+.info-card li{
+  font-family: var(--ff-body);
+  margin-bottom:.35rem
+}
 
 /* pdf-preview separador */
 .pdf-preview{margin-top:1rem}
@@ -986,13 +1006,20 @@ footer .social a:focus{
   /* …resto… */
 }
 /* ░░░ Botón fantasma que conserva el espacio ░░░ */
+/* =========== HONEYPOT – totalmente fuera del flujo =========== */
 .ghost-btn{
-  background:transparent !important;   /* nada de color */
-  color:transparent !important;        /* texto invisible */
-  border:2px solid transparent !important;
-  pointer-events:none;                 /* no se puede clicar */
-  opacity:0;                           /* por si hubiera iconos */
+  position: absolute;     /* lo saca del flujo normal */
+  left: -10000px;         /* lo manda muy fuera de pantalla */
+  width: 1px;             /* ni ancho ni alto apreciables   */
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: transparent;
+  pointer-events: none;   /* por si alguien clicara “a ciegas” */
 }
+
 
 .ghost-btn:hover,
 .ghost-btn:focus{

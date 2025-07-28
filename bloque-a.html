@@ -81,19 +81,26 @@
     <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
       <h3 data-i18n="leadForm.title"></h3>
 
+      <!-- HONEYPOT (anticrawlers/bots) -->
+      <input  type="text"
+              name="website"            
+              tabindex="-1" 
+              autocomplete="off"
+              class="ghost-btn">        <!-- clase que ya lo hace 100 % invisible -->
+
       <label>
         <span data-i18n="popup.nameLabel"></span>
-        <input type="text" name="name" required />
+        <input type="text" name="name" required>
       </label>
 
       <label>
         <span data-i18n="popup.emailLabel"></span>
-        <input type="email" name="email" required />
+        <input type="email" name="email" required>
       </label>
 
       <label>
         <span data-i18n="popup.phoneLabel"></span>
-        <input type="tel" name="phone" required />
+        <input type="tel" name="phone" required>
       </label>
 
       <label>
@@ -132,10 +139,6 @@
 
     <area shape="poly" data-key="aTer1" href="a-tercero-1.html"
           coords="58,212,58,412,338,411,347,419,347,211">
-    <area shape="poly" data-key="aTer2" href="a-tercero-2.html"
-          coords="350,211,351,417,558,416,558,224,513,224,514,210">
-    <area shape="poly" data-key="aTer3" href="a-tercero-3.html"
-          coords="577,195,578,417,962,416,961,213,741,211,738,194">
   </map>
 </section>
 

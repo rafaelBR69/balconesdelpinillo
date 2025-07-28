@@ -79,37 +79,38 @@
       </div>
     </div>
 
-    <!-- NUEVO · formulario de interés -->
+    <!-- Formulario de interés -->
     <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
-      <!-- título -->
       <h3 data-i18n="leadForm.title"></h3>
 
-      <!-- Nombre -->
+      <!-- HONEYPOT (anticrawlers/bots) -->
+      <input  type="text"
+              name="website"            
+              tabindex="-1" 
+              autocomplete="off"
+              class="ghost-btn">        <!-- clase que ya lo hace 100 % invisible -->
+
       <label>
         <span data-i18n="popup.nameLabel"></span>
         <input type="text" name="name" required>
       </label>
 
-      <!-- Email -->
       <label>
         <span data-i18n="popup.emailLabel"></span>
         <input type="email" name="email" required>
       </label>
 
-      <!-- Teléfono -->
       <label>
         <span data-i18n="popup.phoneLabel"></span>
         <input type="tel" name="phone" required>
       </label>
 
-      <!-- Mensaje -->
       <label>
         <span data-i18n="popup.msgLabel"></span>
         <textarea name="message" rows="3"
                   data-i18n-placeholder="leadForm.msgPlaceholderHousing"></textarea>
       </label>
 
-      <!-- Botón -->
       <button type="submit" data-i18n="popup.send"></button>
     </form>
     
@@ -131,8 +132,7 @@
     <area shape="poly" data-key="bSeg3" href="#" coords="577,421,577,583,961,580,958,422">
 
     <area shape="poly" data-key="bTer1" href="#" coords="58,212,58,412,338,411,347,419,347,211">
-    <area shape="poly" data-key="bTer2" href="#" coords="350,211,351,417,558,416,558,224,513,224,514,210">
-    <area shape="poly" data-key="bTer3" href="#" coords="577,195,578,417,962,416,961,213,741,211,738,194">
+
   </map>
 </section>
 

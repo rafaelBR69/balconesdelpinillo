@@ -1,133 +1,111 @@
 {
   "aBajo1": {
-    "nombre": "Bajo 1",
+    "nombre": "Bajo A",
     "habit": 3,
-    "m2": 112,
-    "precio": 395000,
-    "estado": "reservado",
-    "terraza": 25,
-    "orientacion": "Sur-Este",
+    "m2": 92.29,
+    "precio": 525000,
+    "estado": "disponible",
+    "terraza": 20,
+    "orientacion": "SE",
     "pdf": "docs/a-bajo-1.pdf"
   },
 
   "aBajo2": {
-    "nombre": "Bajo 2",
-    "habit": 3,
-    "m2": 115,
-    "precio": 405000,
+    "nombre": "Bajo B",
+    "habit": 2,
+    "m2": 82.71,
+    "precio": 455000,
     "estado": "disponible",
-    "terraza": 21,
-    "orientacion": "Sur",
+    "terraza": 20,
+    "orientacion": "SE",
     "pdf": "docs/a-bajo-2.pdf"
   },
 
   "aBajo3": {
-    "nombre": "Bajo 3",
+    "nombre": "Bajo C",
     "habit": 3,
-    "m2": 118,
-    "precio": 415000,
-    "estado": "vendido",
-    "terraza": 27,
-    "orientacion": "Sur-Oeste",
+    "m2": 95.29,
+    "precio": 525000,
+    "estado": "disponible",
+    "terraza": 20,
+    "orientacion": "SE",
     "pdf": "docs/a-bajo-3.pdf"
   },
 
   "aPrim1": {
-    "nombre": "Primero 1",
+    "nombre": "Primero A",
     "habit": 3,
-    "m2": 112,
-    "precio": 425000,
+    "m2": 95.29,
+    "precio": 506000,
     "estado": "disponible",
-    "terraza": 18,
-    "orientacion": "Este",
+    "terraza": 10,
+    "orientacion": "SE",
     "pdf": "docs/a-primero-1.pdf"
   },
 
   "aPrim2": {
-    "nombre": "Primero 2",
-    "habit": 3,
-    "m2": 115,
-    "precio": 435000,
-    "estado": "reservado",
-    "terraza": 20,
-    "orientacion": "Sur",
+    "nombre": "Primero B",
+    "habit": 2,
+    "m2": 82.71,
+    "precio": 436000,
+    "estado": "disponible",
+    "terraza": 10,
+    "orientacion": "SE",
     "pdf": "docs/a-primero-2.pdf"
   },
 
   "aPrim3": {
-    "nombre": "Primero 3",
+    "nombre": "Primero C",
     "habit": 3,
-    "m2": 118,
-    "precio": 445000,
+    "m2": 95.29,
+    "precio": 506000,
     "estado": "disponible",
-    "terraza": 22,
-    "orientacion": "Oeste",
+    "terraza": 10,
+    "orientacion": "SE",
     "pdf": "docs/a-primero-3.pdf"
   },
 
   "aSeg1": {
-    "nombre": "Segundo 1",
+    "nombre": "Segundo A",
     "habit": 3,
-    "m2": 112,
-    "precio": 455000,
+    "m2": 81.86,
+    "precio": 450000,
     "estado": "disponible",
-    "terraza": 16,
-    "orientacion": "Este",
+    "terraza": 20,
+    "orientacion": "SE",
     "pdf": "docs/a-segundo-1.pdf"
   },
 
   "aSeg2": {
-    "nombre": "Segundo 2",
-    "habit": 3,
-    "m2": 115,
-    "precio": 465000,
-    "estado": "vendido",
-    "terraza": 18,
-    "orientacion": "Sur",
+    "nombre": "Segundo B",
+    "habit": 2,
+    "m2": 82.71,
+    "precio": 455000,
+    "estado": "disponible",
+    "terraza": 20,
+    "orientacion": "SE",
     "pdf": "docs/a-segundo-2.pdf"
   },
 
   "aSeg3": {
-    "nombre": "Segundo 3",
+    "nombre": "Segundo C",
     "habit": 3,
-    "m2": 118,
-    "precio": 475000,
-    "estado": "reservado",
-    "terraza": 19,
-    "orientacion": "Oeste",
+    "m2": 81.86,
+    "precio": 450000,
+    "estado": "disponible",
+    "terraza": 20,
+    "orientacion": "SE",
     "pdf": "docs/a-segundo-3.pdf"
   },
 
   "aTer1": {
-    "nombre": "Tercero 1",
+    "nombre": "Ático",
     "habit": 3,
-    "m2": 112,
-    "precio": 485000,
+    "m2": 95.93,
+    "precio": 645000,
     "estado": "disponible",
     "terraza": 30,
-    "orientacion": "Sur-Este",
+    "orientacion": "SE",
     "pdf": "docs/a-tercero-1.pdf"
-  },
-
-  "aTer2": {
-    "nombre": "Tercero 2",
-    "habit": 3,
-    "m2": 115,
-    "precio": 495000,
-    "estado": "reservado",
-    "terraza": 32,
-    "orientacion": "Sur",
-    "pdf": "docs/a-tercero-2.pdf"
-  },
-
-  "aTer3": {
-    "nombre": "Tercero 3",
-    "habit": 3,
-    "m2": 118,
-    "precio": 505000,
-    "estado": "disponible",
-    "terraza": 35,
-    "orientacion": "Sur-Oeste",
-    "pdf": "docs/a-tercero-3.pdf"
   }
 }

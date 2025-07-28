@@ -64,17 +64,24 @@ if (modal) {
   setTimeout(openModal, TIME_DELAY);
 }
 
-
 /* ==== Envío a Google Sheets para TODOS los formularios data‑lead ==== */
 document.querySelectorAll('form[data-lead]').forEach(form => {
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    /* ➊ Recogemos los campos (name, email, …) */
-    const fd   = new FormData(form);
+    /* ➊ Recogemos campos + honeypot ---------------------------------- */
+    const fd = new FormData(form);
+
+    /* Honeypot: si el campo invisible “website” NO está vacío ⇒ bot */
+    if (fd.get('website')?.trim()) {           // 👈
+      console.warn('[Spam‑bot] envío bloqueado'); // 👈
+      return;                                  // 👈  abortamos envío
+    }
+    fd.delete('website');                      // 👈  ya no lo necesitamos
+
     const data = Object.fromEntries(fd.entries());
 
-    /* ➋ Campo extra para saber de dónde llegó la solicitud */
+    /* ➋ Fuente de la solicitud (para la hoja) */
     data.origin = form.dataset.origin || 'Formulario Web';
 
     try {
@@ -82,13 +89,13 @@ document.querySelectorAll('form[data-lead]').forEach(form => {
       if (typeof closeModal === 'function') closeModal();
       if (typeof openThank  === 'function') openThank();
 
-      /* ➌ Envío sin CORS */
+      /* ➌ Envío sin CORS a Google Sheets */
       await fetch(
         'https://script.google.com/macros/s/AKfycbxlBgB28gJM1LyutP76PLlsJy9dWhuZTgwFwT3fYZrEH4CBZu0UQ8peW3hkz8Nnsukjqw/exec',
-        { method:'POST', mode:'no-cors', body:JSON.stringify(data) }
+        { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) }
       );
 
-      form.reset();
+      form.reset();          // limpia el formulario
     } catch (err) {
       console.error(err);
       alert('Ups, no se pudo enviar. Inténtalo de nuevo.');
@@ -253,6 +260,8 @@ window.addEventListener('load', () => {
       return;
     }
 
+    const orient = i18next.t('orientationMap.' + d.orientacion);
+
     const planta = /bajo/i.test(key) ? 'bajo' :
                   /prim/i.test(key) ? 'primero' :
                   /seg/i.test(key)  ? 'segundo' :
@@ -271,7 +280,7 @@ window.addEventListener('load', () => {
           <li>${i18next.t('blockInfo.rooms', { count: d.habit })}</li>
           <li>${i18next.t('blockInfo.builtArea',  { value: d.m2 })}</li>
           <li>${i18next.t('blockInfo.terrace',{ value: d.terraza })}</li>
-          <li>${i18next.t('blockInfo.orientation', { dir: d.orientacion })}</li>
+          <li>${i18next.t('blockInfo.orientation', { dir: orient })}</li>
           <li class="precio"><span id="price-value">0 €</span></li>
         </ul>
 

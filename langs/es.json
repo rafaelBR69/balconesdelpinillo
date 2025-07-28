@@ -119,5 +119,15 @@
       "vendido": "Vendido",
       "disponible": "Disponible"
     }
+  },
+  "orientationMap": {
+    "N" :"Norte",
+    "S" :"Sur",
+    "E" :"Este",
+    "O" :"Oeste",
+    "NE":"Noreste",
+    "NO":"Noroeste",
+    "SE":"Sureste",
+    "SO":"Suroeste"
   }
 }

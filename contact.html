@@ -48,9 +48,13 @@
   </nav>
 </header>
 
-<!-- ███ HERO · FORMULARIO EN LA IMAGEN ███ -->
+<!-- ███ HERO · FORMULARIO EN LA IMAGEN ███ -->
 <section class="section_1" id="contactForm">
-  <form id="leadForm" class="modal__form hero-form reveal" data-lead autocomplete="off">
+  <form id="leadForm"
+        class="modal__form hero-form reveal"
+        data-lead
+        autocomplete="off">
+
     <h2 class="hero-form__title" data-i18n="contact.formTitle"></h2>
 
     <label data-i18n="popup.nameLabel"></label>
@@ -60,16 +64,29 @@
     <input type="email" name="email" required>
 
     <label data-i18n="popup.phoneLabel"></label>
-    <input type="tel" name="phone" required>
+    <input type="tel"  name="phone" required>
 
     <label data-i18n="popup.msgLabel"></label>
     <textarea name="message" rows="4"
               data-i18n-placeholder="popup.msgPlaceholder"></textarea>
 
+    <!-- ───────────────────────────────────────────
+         Honeypot: los humanos no lo ven ni tabulan
+         ─────────────────────────────────────────── -->
+    <div class="hp-wrapper" aria-hidden="true">
+      <label for="website">Website</label>   <!-- texto neutro -->
+      <input type="text"
+             id="website"
+             name="website"       
+             tabindex="-1"
+             autocomplete="off">
+    </div>
+
     <button type="submit" class="modal__send"
             data-i18n="popup.send"></button>
   </form>
 </section>
+
 
 
 <!-- ███ INFORMACIÓN DE CONTACTO (opcional) ███ -->
