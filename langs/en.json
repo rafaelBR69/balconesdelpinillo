@@ -36,12 +36,6 @@
     },
     "viewDetails": "View details"
   },
-  "footer": {
-    "contact": "Contact us: info@blancareal.com | +34 621 283 445",
-    "follow": "Follow us",
-    "copyright": "©2024 | All rights reserved",
-    "developer": "Developed by BlancaReal Marketing"
-  },
   "project": {
     "imgAlt": "Kitchen interior of the Torremolinos residential project",
     "description": "This exclusive residential project in Torremolinos redefines contemporary luxury, blending architecture, natural surroundings and lifestyle in one of the Costa del Sol’s most vibrant and established areas. Just 500 m from La Carihuela beach and Benalmádena Marina, it offers an elegant seaside home for those who value quality and privacy.",
@@ -129,5 +123,14 @@
     "NO":"North‑West",
     "SE":"South‑East",
     "SO":"South‑West"
+  },
+    "footer": {
+    "contact"   : "Contact us: info@blancareal.com | +34 621 28 34 45",
+    "follow"    : "Follow us",
+    "legal"     : "Legal notice",
+    "cookies"   : "Cookie policy",
+    "privacy"   : "Privacy policy",
+    "copyright" : "©2024 | Balcones del Pinillo",
+    "developer" : "Developed by BlancaReal Marketing"
   }
-}
+  }
