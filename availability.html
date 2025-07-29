@@ -20,110 +20,113 @@
   <title data-i18n="availability.title"></title>
 </head>
 
-<body>
-<!-- ███ NAVBAR (idéntico) ███ -->
-<header>
-  <nav>
-    <a class="logo" href="index.html">
-      <!-- usa ruta relativa al proyecto, no rutas locales de Windows -->
-      <img src="/images/logo.png"
-          alt="Balcones del Pinillo">
-    </a>
+  <body>
+  <!-- ███ NAVBAR (idéntico) ███ -->
+    <header>
+      <nav>
+        <a class="logo" href="index.html">
+          <!-- usa ruta relativa al proyecto, no rutas locales de Windows -->
+          <img src="/images/logo.png"
+              alt="Balcones del Pinillo">
+        </a>
 
-    <div class="burgar" onclick="toggleNav()">&#9776;</div>
+        <div class="burgar" onclick="toggleNav()">&#9776;</div>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html"      data-i18n="nav.home"></a></li>
-      <li><a href="availability.html" data-i18n="nav.availability"></a></li>
-      
-      <li><a href="contact.html"    data-i18n="nav.contact"></a></li>
-    </ul>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html"      data-i18n="nav.home"></a></li>
+          <li><a href="availability.html" data-i18n="nav.availability"></a></li>
+          
+          <li><a href="contact.html"    data-i18n="nav.contact"></a></li>
+        </ul>
 
-    <div class="btn">
-      <a class="sign_up primary" href="contact.html#contactForm"
-        data-i18n="btn.contact"></a>
-    </div>
-    <select id="langSwitcher" aria-label="Cambiar idioma">
-      <option value="es">ES</option>
-      <option value="en">EN</option>
-    </select>
-  </nav>
-</header>
+        <div class="btn">
+          <a class="sign_up primary" href="contact.html#contactForm"
+            data-i18n="btn.contact"></a>
+        </div>
+        <select id="langSwitcher" aria-label="Cambiar idioma">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </nav>
+    </header>
 
-<!-- ███ HERO DISPONIBILIDAD ███ -->
-<section class="section_1 section_1--availability">
+    <!-- ███ HERO DISPONIBILIDAD ███ -->
+    <section class="section_1 section_1--availability">
 
-  <!-- 2 ▸ textos hero (se verán “debajo” de las áreas) -->
-  <div class="bg_div">
-    <h2 class="bg_text1" data-i18n="availability.heroTitle"></h2>
-    <h2 class="bg_text2" data-i18n="availability.heroSub"></h2>
-  </div>
+      <!-- 2 ▸ textos hero (se verán “debajo” de las áreas) -->
+      <div class="bg_div">
+        <h2 class="bg_text1" data-i18n="availability.heroTitle"></h2>
+        <h2 class="bg_text2" data-i18n="availability.heroSub"></h2>
+      </div>
 
-  <!-- 1 ▸ imagen + mapa (Draw-Attention) -->
-  <img src="images/home.webp"
-       id="avail-img"
-       usemap="#avail-map"
-       alt="Plano de disponibilidad">
+      <!-- 1 ▸ imagen + mapa (Draw-Attention) -->
+      <img src="images/home.webp"
+          id="avail-img"
+          usemap="#avail-map"
+          alt="Plano de disponibilidad">
 
-  <map name="avail-map">
-    <area shape="poly"
-          coords="-1,353,112,353,112,316,356,321,356,351,508,344,510,365,554,370,557,590,368,827,-1,829,-1,567,-1,467,-1,460"
-          href="bloque-a.html"
-          data-key="bloqueA">
-    <area shape="poly"
-          coords="903,363,898,591,1037,792,1488,789,1492,388,1465,351,1316,347,1314,312,1188,316,1184,347,942,343"
-          href="bloque-b.html"
-          data-key="bloqueB">
-  </map>
+      <map name="avail-map">
+        <area shape="poly"
+              coords="-1,353,112,353,112,316,356,321,356,351,508,344,510,365,554,370,557,590,368,827,-1,829,-1,567,-1,467,-1,460"
+              href="bloque-a.html"
+              data-key="bloqueA">
+        <area shape="poly"
+              coords="903,363,898,591,1037,792,1488,789,1492,388,1465,351,1316,347,1314,312,1188,316,1184,347,942,343"
+              href="bloque-b.html"
+              data-key="bloqueB">
+      </map>
 
-</section>
+    </section>
 
-<!-- ███ CONTENIDO FUTURO ███ -->
-<section class="section_3">
-  <div class="service-header reveal">
-    <h1 data-i18n="availability.comingSoon"></h1>
-    <p  data-i18n="availability.comingSoonText"></p>
-  </div>
-</section>
+    <!-- ███ CONTENIDO FUTURO ███ -->
+    <section class="section_3">
+      <div class="service-header reveal">
+        <h1 data-i18n="availability.comingSoon"></h1>
+        <p  data-i18n="availability.comingSoonText"></p>
+      </div>
+    </section>
 
-<!-- ███ FOOTER (idéntico) ███ -->
-<footer>
-  <p data-i18n="footer.contact"></p>
-  <p>
-    <span data-i18n="footer.follow"></span><br>
-    <div class="social">
-          <a href="https://www.instagram.com/blancarealspain/?hl=es"
-            target="_blank" rel="noopener" aria-label="Instagram">
+  <!--*** Footer ***-->
+    <footer>
+      <!-- Línea de contacto -->
+      <p data-i18n="footer.contact"></p>
+
+      <!-- Seguimiento y redes sociales -->
+      <p>
+        <span data-i18n="footer.follow"></span><br />
+        <div class="social">
+          <a href="https://www.instagram.com/blancarealspain/?hl=es" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram fa-fw"></i>
           </a>
-
-          <a href="https://es.linkedin.com/company/blancareal-real-estate"
-            target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a href="https://es.linkedin.com/company/blancareal-real-estate" target="_blank" rel="noopener" aria-label="LinkedIn">
             <i class="fa-brands fa-linkedin fa-fw"></i>
           </a>
-
-          <!-- Icono globo (sitio web oficial) -->
-          <a href="https://www.blancareal.com/"
-            target="_blank" rel="noopener" aria-label="Sitio web">
+          <a href="https://www.blancareal.com/" target="_blank" rel="noopener" aria-label="Official website">
             <i class="fa-solid fa-globe fa-fw"></i>
           </a>
-
-          <!-- Icono YouTube -->
-          <a href="https://www.youtube.com/@BlancaRealSpain"
-            target="_blank" rel="noopener" aria-label="YouTube">
+          <a href="https://www.youtube.com/@BlancaRealSpain" target="_blank" rel="noopener" aria-label="YouTube">
             <i class="fa-brands fa-youtube fa-fw"></i>
           </a>
         </div>
-  </p>
-  <p class="footer-text1" data-i18n="footer.copyright"></p>
-  <p class="footer-text1" data-i18n="footer.developer"></p>
-</footer>
+      </p>
 
-<!-- app.js con pop-ups, scroll-reveal, etc. -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
+      <!-- Enlaces legales -->
+      <div class="legal-links">
+        <a href="/legal-notice.html"   data-i18n="footer.legal"   target="_blank" rel="noopener"></a>
+        <a href="/cookie-policy.html"  data-i18n="footer.cookies" target="_blank" rel="noopener"></a>
+        <a href="/privacy-policy.html" data-i18n="footer.privacy" target="_blank" rel="noopener"></a>
+      </div>
 
-<script src="/js/il18n.js"></script>
-<script src="./app.js"></script>
-</body>
+      <!-- Copyright y desarrollador -->
+      <p class="footer-text1" data-i18n="footer.copyright"></p>
+      <p class="footer-text1" data-i18n="footer.developer"></p>
+    </footer>
+
+    <!-- app.js con pop-ups, scroll-reveal, etc. -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
+
+    <script src="/js/il18n.js"></script>
+    <script src="./app.js"></script>
+  </body>
 </html>

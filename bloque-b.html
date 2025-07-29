@@ -1,202 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ESTILOS COMUNES -->
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./mediaquaries.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- ESTILOS COMUNES -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./mediaquaries.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- FUENTES GOOGLE -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap"
-        rel="stylesheet">
+    <!-- FUENTES GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@100;400;700&display=swap"
+          rel="stylesheet">
 
-  <!-- i18next -->
-  <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
-  <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
-  <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
+    <!-- i18next -->
+    <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@8/i18nextBrowserLanguageDetector.min.js"></script>
 
-  <title data-i18n="blockB.title">Bloque B · Planos</title>
-</head>
+    <title data-i18n="blockB.title">Bloque B · Planos</title>
+  </head>
 
-<body>
+  <body>
 
-<!-- █ NAVBAR (copiado) █ -->
-<header>
-  <nav>
-    <a class="logo" href="index.html">
-      <!-- usa ruta relativa al proyecto, no rutas locales de Windows -->
-      <img src="/images/logo.png"
-          alt="Balcones del Pinillo">
-    </a>
+  <!-- █ NAVBAR (copiado) █ -->
+  <header>
+    <nav>
+      <a class="logo" href="index.html">
+        <!-- usa ruta relativa al proyecto, no rutas locales de Windows -->
+        <img src="/images/logo.png"
+            alt="Balcones del Pinillo">
+      </a>
 
-    <div class="burgar" onclick="toggleNav()">&#9776;</div>
+      <div class="burgar" onclick="toggleNav()">&#9776;</div>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html"        data-i18n="nav.home"></a></li>
-      <li><a href="availability.html" data-i18n="nav.availability"></a></li>
-      <li><a href="contact.html"      data-i18n="nav.contact"></a></li>
-    </ul>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"        data-i18n="nav.home"></a></li>
+        <li><a href="availability.html" data-i18n="nav.availability"></a></li>
+        <li><a href="contact.html"      data-i18n="nav.contact"></a></li>
+      </ul>
 
-    <div class="btn">
-      <a class="sign_up primary" href="contact.html#contactForm"
-        data-i18n="btn.contact"></a>
-    </div>
-    <select id="langSwitcher" aria-label="Cambiar idioma">
-      <option value="es">ES</option>
-      <option value="en">EN</option>
-    </select>
-  </nav>
-</header>
-
-<!-- █ HERO BLOQUE B █ -->
-<section class="section_1 section_1--availability"
-         data-json="viviendas-b.json"><!-- ① ruta al JSON -->
-
-  <div class="plan-container">
-    <div class="plan-box">
-
-      <!-- Texto dinámico -->
-      <div id="info-text" class="info-text">
-        <p data-i18n="blockB.clickHint">Haz clic en una vivienda…</p>
+      <div class="btn">
+        <a class="sign_up primary" href="contact.html#contactForm"
+          data-i18n="btn.contact"></a>
       </div>
+      <select id="langSwitcher" aria-label="Cambiar idioma">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
+    </nav>
+  </header>
 
-      <!-- Plano -->
-      <img src="images/bloque.webp"
-           id="blockB-img"
-           usemap="#blockB-map"
-           alt="Plano de viviendas Bloque B">
+  <!-- █ HERO BLOQUE B █ -->
+  <section class="section_1 section_1--availability"
+          data-json="viviendas-b.json"><!-- ① ruta al JSON -->
 
-      <!-- Títulos superpuestos -->
-      <div class="bg_div">
-        <h2 class="bg_text1" data-i18n="blockB.heroTitle"></h2>
-        <h2 class="bg_text2" data-i18n="blockB.heroSub"></h2>
-      </div>
-    </div>
+    <div class="plan-container">
+      <div class="plan-box">
 
-    <!-- Formulario de interés -->
-    <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
-      <h3 data-i18n="leadForm.title"></h3>
-
-      <!-- HONEYPOT (anticrawlers/bots) -->
-      <input  type="text"
-              name="website"            
-              tabindex="-1" 
-              autocomplete="off"
-              class="ghost-btn">        <!-- clase que ya lo hace 100 % invisible -->
-
-      <label>
-        <span data-i18n="popup.nameLabel"></span>
-        <input type="text" name="name" required>
-      </label>
-
-      <label>
-        <span data-i18n="popup.emailLabel"></span>
-        <input type="email" name="email" required>
-      </label>
-
-      <label>
-        <span data-i18n="popup.phoneLabel"></span>
-        <input type="tel" name="phone" required>
-      </label>
-
-      <label>
-        <span data-i18n="popup.msgLabel"></span>
-        <textarea name="message" rows="3"
-                  data-i18n-placeholder="leadForm.msgPlaceholderHousing"></textarea>
-      </label>
-
-      <button type="submit" data-i18n="popup.send"></button>
-    </form>
-    
-  </div>
-
-  <!-- MAPA de coordenadas -->
-  <map name="blockB-map">
-    <!-- ② data-key = claves que existen en viviendas-b.json -->
-    <area shape="poly" data-key="bBajo1" href="#" coords="65,760,65,930,324,934,339,925,341,759">
-    <area shape="poly" data-key="bBajo2" href="#" coords="343,761,341,924,564,925,565,762">
-    <area shape="poly" data-key="bBajo3" href="#" coords="576,761,574,924,717,927,729,935,959,932,960,759">
-
-    <area shape="poly" data-key="bPrim1" href="#" coords="64,579,341,580,346,587,347,756,64,758">
-    <area shape="poly" data-key="bPrim2" href="#" coords="349,587,350,754,560,754,561,586">
-    <area shape="poly" data-key="bPrim3" href="#" coords="576,587,576,754,960,755,959,585">
-
-    <area shape="poly" data-key="bSeg1" href="#" coords="64,575,341,576,347,583,348,428,339,413,63,412">
-    <area shape="poly" data-key="bSeg2" href="#" coords="350,424,353,582,560,582,560,424">
-    <area shape="poly" data-key="bSeg3" href="#" coords="577,421,577,583,961,580,958,422">
-
-    <area shape="poly" data-key="bTer1" href="#" coords="58,212,58,412,338,411,347,419,347,211">
-
-  </map>
-</section>
-
-
-<!-- █ FUTURO CONTENIDO / DESCRIPCIÓN █ -->
-<section class="section_3">
-  <div class="service-header reveal">
-    <h1 data-i18n="blockB.infoTitle">Elige planta y tipología</h1>
-    <p  data-i18n="blockB.infoText">Próximamente más detalles y fichas
-      descargables.</p>
-  </div>
-</section>
-
-<!-- █ FOOTER (idéntico) █ -->
-<footer>
-  <p data-i18n="footer.contact"></p>
-  <p>
-    <span data-i18n="footer.follow"></span><br>
-    <div class="social">
-          <a href="https://www.instagram.com/blancarealspain/?hl=es"
-            target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fa-brands fa-instagram fa-fw"></i>
-          </a>
-
-          <a href="https://es.linkedin.com/company/blancareal-real-estate"
-            target="_blank" rel="noopener" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin fa-fw"></i>
-          </a>
-
-          <!-- Icono globo (sitio web oficial) -->
-          <a href="https://www.blancareal.com/"
-            target="_blank" rel="noopener" aria-label="Sitio web">
-            <i class="fa-solid fa-globe fa-fw"></i>
-          </a>
-
-          <!-- Icono YouTube -->
-          <a href="https://www.youtube.com/@BlancaRealSpain"
-            target="_blank" rel="noopener" aria-label="YouTube">
-            <i class="fa-brands fa-youtube fa-fw"></i>
-          </a>
+        <!-- Texto dinámico -->
+        <div id="info-text" class="info-text">
+          <p data-i18n="blockB.clickHint">Haz clic en una vivienda…</p>
         </div>
-  </p>
-  <p class="footer-text1" data-i18n="footer.copyright"></p>
-  <p class="footer-text1" data-i18n="footer.developer"></p>
-</footer>
 
-<!-- 1. jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- Plano -->
+        <img src="images/bloque.webp"
+            id="blockB-img"
+            usemap="#blockB-map"
+            alt="Plano de viviendas Bloque B">
 
-  <!-- 2. ImageMapster -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
+        <!-- Títulos superpuestos -->
+        <div class="bg_div">
+          <h2 class="bg_text1" data-i18n="blockB.heroTitle"></h2>
+          <h2 class="bg_text2" data-i18n="blockB.heroSub"></h2>
+        </div>
+      </div>
 
-  <!-- 3. PDF.js oficial de pdfjs-dist -->
-  <script src="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
-  <script>
-    // Ahora sí existe window.pdfjsLib
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      "https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js";
-  </script>
+      <!-- Formulario de interés -->
+      <form id="leadFormBlock" class="lead-card" data-lead autocomplete="off">
+        <h3 data-i18n="leadForm.title"></h3>
 
-  <script src="/js/il18n.js"></script>
+        <!-- HONEYPOT (anticrawlers/bots) -->
+        <input  type="text"
+                name="website"            
+                tabindex="-1" 
+                autocomplete="off"
+                class="ghost-btn">        <!-- clase que ya lo hace 100 % invisible -->
 
-  <!-- 4. Tu código principal -->
-  <script src="./app.js"></script>
+        <label>
+          <span data-i18n="popup.nameLabel"></span>
+          <input type="text" name="name" required>
+        </label>
 
-</body>
+        <label>
+          <span data-i18n="popup.emailLabel"></span>
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          <span data-i18n="popup.phoneLabel"></span>
+          <input type="tel" name="phone" required>
+        </label>
+
+        <label>
+          <span data-i18n="popup.msgLabel"></span>
+          <textarea name="message" rows="3"
+                    data-i18n-placeholder="leadForm.msgPlaceholderHousing"></textarea>
+        </label>
+
+        <button type="submit" data-i18n="popup.send"></button>
+      </form>
+      
+    </div>
+
+    <!-- MAPA de coordenadas -->
+    <map name="blockB-map">
+      <!-- ② data-key = claves que existen en viviendas-b.json -->
+      <area shape="poly" data-key="bBajo1" href="#" coords="65,760,65,930,324,934,339,925,341,759">
+      <area shape="poly" data-key="bBajo2" href="#" coords="343,761,341,924,564,925,565,762">
+      <area shape="poly" data-key="bBajo3" href="#" coords="576,761,574,924,717,927,729,935,959,932,960,759">
+
+      <area shape="poly" data-key="bPrim1" href="#" coords="64,579,341,580,346,587,347,756,64,758">
+      <area shape="poly" data-key="bPrim2" href="#" coords="349,587,350,754,560,754,561,586">
+      <area shape="poly" data-key="bPrim3" href="#" coords="576,587,576,754,960,755,959,585">
+
+      <area shape="poly" data-key="bSeg1" href="#" coords="64,575,341,576,347,583,348,428,339,413,63,412">
+      <area shape="poly" data-key="bSeg2" href="#" coords="350,424,353,582,560,582,560,424">
+      <area shape="poly" data-key="bSeg3" href="#" coords="577,421,577,583,961,580,958,422">
+
+      <area shape="poly" data-key="bTer1" href="#" coords="58,212,58,412,338,411,347,419,347,211">
+
+    </map>
+  </section>
+
+
+  <!-- █ FUTURO CONTENIDO / DESCRIPCIÓN █ -->
+  <section class="section_3">
+    <div class="service-header reveal">
+      <h1 data-i18n="blockB.infoTitle">Elige planta y tipología</h1>
+      <p  data-i18n="blockB.infoText">Próximamente más detalles y fichas
+        descargables.</p>
+    </div>
+  </section>
+
+  <!--*** Footer ***-->
+  <footer>
+    <!-- Línea de contacto -->
+    <p data-i18n="footer.contact"></p>
+
+    <!-- Seguimiento y redes sociales -->
+    <p>
+      <span data-i18n="footer.follow"></span><br />
+      <div class="social">
+        <a href="https://www.instagram.com/blancarealspain/?hl=es" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram fa-fw"></i>
+        </a>
+        <a href="https://es.linkedin.com/company/blancareal-real-estate" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin fa-fw"></i>
+        </a>
+        <a href="https://www.blancareal.com/" target="_blank" rel="noopener" aria-label="Official website">
+          <i class="fa-solid fa-globe fa-fw"></i>
+        </a>
+        <a href="https://www.youtube.com/@BlancaRealSpain" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fa-brands fa-youtube fa-fw"></i>
+        </a>
+      </div>
+    </p>
+
+    <!-- Enlaces legales -->
+    <div class="legal-links">
+      <a href="/legal-notice.html"   data-i18n="footer.legal"   target="_blank" rel="noopener"></a>
+      <a href="/cookie-policy.html"  data-i18n="footer.cookies" target="_blank" rel="noopener"></a>
+      <a href="/privacy-policy.html" data-i18n="footer.privacy" target="_blank" rel="noopener"></a>
+    </div>
+
+    <!-- Copyright y desarrollador -->
+    <p class="footer-text1" data-i18n="footer.copyright"></p>
+    <p class="footer-text1" data-i18n="footer.developer"></p>
+  </footer>
+
+  <!-- 1. jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- 2. ImageMapster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imagemapster/1.5.4/jquery.imagemapster.min.js"></script>
+
+    <!-- 3. PDF.js oficial de pdfjs-dist -->
+    <script src="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+    <script>
+      // Ahora sí existe window.pdfjsLib
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js";
+    </script>
+
+    <script src="/js/il18n.js"></script>
+
+    <!-- 4. Tu código principal -->
+    <script src="./app.js"></script>
+
+  </body>
 </html>
