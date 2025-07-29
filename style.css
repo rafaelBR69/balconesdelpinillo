@@ -557,6 +557,41 @@ footer :nth-child(2) {
   font-weight: bold;
 }
 
+/* —— Footer: enlaces legales perfectamente alineados —— */
+footer .legal-links{
+  display:flex;                  /* fila horizontal             */
+  flex-wrap:nowrap;              /* prohíbe saltos              */
+  gap:1.4rem;                    /* espacio uniforme            */
+  justify-content:center;        /* centrado                    */
+  align-items:baseline;          /* misma línea base            */
+  margin:.6rem 0;
+  font-size:1rem;                /* tamaño único                */
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+footer .legal-links a{
+  display:inline-block;          /* evita que un reset los haga “block” */
+  color:#ffffff;                 /* blanco consistente          */
+  font-weight:400 !important;    /* fuerza peso regular         */
+  text-decoration:none;          /* sin subrayado permanente    */
+  line-height:1.4;
+}
+
+footer .legal-links a:hover,
+footer .legal-links a:focus{
+  text-decoration:underline;     /* subrayado al interactuar    */
+}
+
+footer .legal-links a:link,
+footer .legal-links a:visited{
+  display:inline-block;
+  color:#ffffff;
+  font-weight:400 !important;
+  font-size:2rem   !important;   /* ← fuerza el mismo tamaño */
+  text-decoration:none;
+  line-height:1.4;
+}
+
 /* ---------- Modal base ---------- */
 .modal {
   position: fixed;

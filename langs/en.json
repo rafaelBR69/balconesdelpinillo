@@ -22,13 +22,13 @@
     "description": "",
     "buy": {
       "title": "Purchase",
-      "text": "Our seasoned team will guide you every step of the way…"
+      "text": "Our seasoned team will guide you at every step…"
     },
     "learnMore": "Learn more ❯"
   },
   "blog": {
     "title": "Find your ideal home",
-    "subtitle": "You’ll enjoy every convenience on your doorstep: supermarkets, schools, medical centres, pharmacies, gyms and a wealth of bars, restaurants and leisure venues. All in a vibrant, established setting where a comfortable life needn’t forego tranquillity.\nTorremolinos is open‑minded, diverse and cosmopolitan, welcoming every lifestyle with ease. Here, freedom and wellbeing come without labels.\nPerfect as a primary residence or as a holiday sanctuary for those seeking more than a house: a place that truly feels like home.",
+    "subtitle": "You will enjoy every convenience on your doorstep: supermarkets, schools, medical centres, pharmacies, gyms and a wealth of bars, restaurants and leisure venues. All in a vibrant, established setting where a comfortable life need not forego tranquillity.\nTorremolinos is open‑minded, diverse and cosmopolitan, welcoming every lifestyle with ease. Here, freedom and wellbeing come without labels.\nPerfect as a primary residence or as a holiday sanctuary for those seeking more than a house: a place that truly feels like home.",
     "card1": {
       "title": "Living room",
       "location": "Ikoyi Lagos",
@@ -51,12 +51,12 @@
     "locationAdvantages": "Unique 2‑, 3‑ and 4‑bedroom homes with high‑quality finishes, communal pool, gardens, gym and private parking. Everything designed for those who appreciate comfort, aesthetics and a life without haste."
   },
   "popup": {
-    "title": "Interested in the development?",
+    "title": "Are you interested in the development?",
     "nameLabel": "Name",
     "emailLabel": "Email",
     "phoneLabel": "Telephone",
     "msgLabel": "Message",
-    "msgPlaceholder": "I’d like more information…",
+    "msgPlaceholder": "I would like more information…",
     "send": "Send",
     "thanksTitle": "Thank you for your interest!",
     "thanksText": "We have received your enquiry. Our team will contact you shortly.",
@@ -65,10 +65,10 @@
   "contact": {
     "title": "Contact | Balcones del Pinillo",
     "heroTitle": "Get in touch with us",
-    "heroSub": "We’re only a message away",
+    "heroSub": "We are only a message away",
     "imgAlt": "Person filling in a form",
     "formTitle": "Enter your details",
-    "infoTitle": "You can also call us",
+    "infoTitle": "You may also call us",
     "infoText": "Telephone: +34 621 283 445 · Email: info@blancareal.com"
   },
   "availability": {
@@ -79,8 +79,8 @@
     "comingSoonText": "Updated plans and prices will be available here very soon."
   },
   "blockA": {
-    "title": "Building A · Plans",
-    "heroTitle": "Building A",
+    "title": "Building 1 · Plans",
+    "heroTitle": "Building 1",
     "heroSub": "Select a residence",
     "infoTitle": "Choose floor and typology",
     "infoText": "More details and downloadable data sheets coming soon.",
@@ -88,8 +88,8 @@
     "imgAlt": "Floor plan of Building A residences"
   },
   "blockB": {
-    "title": "Building B · Plans",
-    "heroTitle": "Building B",
+    "title": "Building 2 · Plans",
+    "heroTitle": "Building 2",
     "heroSub": "Select a residence",
     "infoTitle": "Choose floor and typology",
     "infoText": "More details and downloadable data sheets coming soon.",
@@ -98,7 +98,7 @@
   },
   "leadForm": {
     "title": "Are you interested?",
-    "msgPlaceholderHousing": "I’d like more information about this residence…"
+    "msgPlaceholderHousing": "I would like more information about this residence…"
   },
   "blockInfo": {
     "noData": "No data…",
@@ -115,22 +115,34 @@
     }
   },
   "orientationMap": {
-    "N" :"North",
-    "S" :"South",
-    "E" :"East",
-    "O" :"West",
-    "NE":"North‑East",
-    "NO":"North‑West",
-    "SE":"South‑East",
-    "SO":"South‑West"
+    "N": "North",
+    "S": "South",
+    "E": "East",
+    "O": "West",
+    "NE": "North‑East",
+    "NO": "North‑West",
+    "SE": "South‑East",
+    "SO": "South‑West"
   },
-    "footer": {
-    "contact"   : "Contact us: info@blancareal.com | +34 621 28 34 45",
-    "follow"    : "Follow us",
-    "legal"     : "Legal notice",
-    "cookies"   : "Cookie policy",
-    "privacy"   : "Privacy policy",
-    "copyright" : "©2024 | Balcones del Pinillo",
-    "developer" : "Developed by BlancaReal Marketing"
+  "footer": {
+    "contact": "info@blancareal.com | +34 621 28 34 45",
+    "follow": "Follow us",
+    "legal": "Legal notice",
+    "cookies": "Cookie policy",
+    "privacy": "Privacy policy",
+    "copyright": "©2025 | Balcones del Pinillo",
+    "developer": "Developed by BlancaReal Marketing"
+  },
+  "legalNotice": {
+    "pageTitle": "Legal Notice | Balcones del Pinillo",
+    "content": "<h1>Legal Notice</h1>\n\n<p><strong>In compliance with Law&nbsp;34/2002 of 11&nbsp;July on Services of the Information Society and Electronic Commerce (LSSICE),</strong> the following general information about the website <em>www.balconesdelpinillo.com</em> is provided.</p>\n\n<h2>Entity</h2>\n<p><strong>Trade name:</strong> BLANCA&nbsp;REAL<br>\n<strong>Corporate name:</strong> AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO, S.L.<br>\n<strong>CIF:</strong> B93153021<br>\n<strong>Registered office:</strong> Calle Monte Calahonda&nbsp;10, 29649 Mijas Costa<br>\n<strong>Telephone:</strong> 952&nbsp;599&nbsp;159<br>\n<strong>Email:</strong> <a href='mailto:info@blancareal.com'>info@blancareal.com</a><br>\nRegistered in the Commercial Registry of Málaga, Sheet MA‑00111198, Volume 04941, Book 3848</p>\n\n<h2>Use of the Website</h2>\n<p>The website is offered for promotional purposes, providing information about the various services offered by AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO, a company acting as a Real Estate Agency. AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO may cease to provide these information services without prior notice, which will not entail any legal obligation towards the user or third parties.</p>\n\n<h2>Privacy</h2>\n<p>The information that AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO may collect from users of this website will be used exclusively to provide requested information and/or to respond to user enquiries. For more details, please consult our <a href='/privacy-policy.html'>Privacy Policy</a>.</p>\n\n<h2>Links to Third Parties</h2>\n<p>When following links to third‑party sites, the user will be governed by the Terms of Use and Privacy Policy of the new site, accepting that AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO will not be responsible nor have any legal obligation for the use of such sites.</p>\n\n<h2>Intellectual Property</h2>\n<p>AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO, either as owner, transferee or licensee, holds all intellectual and industrial property rights over the elements of this website. Reproduction, distribution or public communication of all or part of the contents for commercial purposes is expressly prohibited in accordance with articles&nbsp;8 and&nbsp;21 of the Intellectual Property Law. Users may view, print, store and copy the contents for strictly personal and private use.</p>\n\n<h2>Terms of Use and Responsibility</h2>\n<p>The user agrees to use this website in accordance with the law, morality and public order, refraining from:</p>\n<ul>\n  <li>Unauthorised or fraudulent use of the website.</li>\n  <li>Attempting unauthorised access by the legitimate owner.</li>\n  <li>Using the portal for illegal purposes, harmful to third parties or with the intention of damaging the site or other users.</li>\n  <li>Causing damage to the systems installed for the website’s operation.</li>\n</ul>\n<p>The owner of AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO will only be responsible for content created by them, not for links incorporated by third parties or external sites beyond their control.</p>\n\n<p>The owner reserves the right to make any changes deemed appropriate, without prior notice, to both content and services offered, and to approve or remove third‑party content considered inappropriate.</p>\n\n<h2>Modifications to the Terms of Use</h2>\n<p>AZUGA&nbsp;SERVICIO&nbsp;GLOBAL&nbsp;INMOBILIARIO reserves the right to modify these Terms of Use and the Privacy Policy at any time. Users are obliged to review these terms periodically, as they may change without prior notice.</p>\n\n<h2>Applicable Law and Jurisdiction</h2>\n<p>Spanish law shall apply in case of dispute or conflict regarding this Legal Notice or any services of this Portal. Any conflict arising from visiting the Portal or using its contents shall be settled in the competent Courts and Tribunals.</p>"
+  },
+  "cookiePolicy": {
+    "pageTitle": "Cookies Policy | Balcones del Pinillo",
+    "content": "<div class=\"entry-content\">\n\n\n<p>In compliance with the Law on Information Society Services and Electronic Commerce and with European Directive 2009/136/EC (Guidelines 05/2020 of the EDPB), www.nylvahomes.com informs you about its use of cookies and assumes your consent simply by continuing to browse this website.</p>\n\n<p>Cookies are small files downloaded to a user’s device when visiting certain websites, storing browsing information, recognising the device or browser, or gathering statistical data. They do not contain viruses or harmful code.<br>By accepting the cookie banner or configuring cookies on this site, you expressly accept their use. Disabling cookies may impair your browsing experience and some features may not work correctly.</p>\n\n<p><strong>TYPES OF COOKIES</strong> (source: Spanish Data Protection Agency)</p>\n<ol><li><em>By managing entity</em>:\n<ul><li>First‑party cookies: sent from a domain managed by the editor.</li><li>Third‑party cookies: sent from a domain not managed by the editor.</li></ul></li>\n<li><em>By activation time</em>:\n<ul><li>Session cookies: store data while the user is on the page.</li><li>Persistent cookies: data remain stored for a defined period.</li></ul></li>\n<li><em>By purpose</em>:\n<ul><li>Technical cookies</li><li>Personalisation cookies</li><li>Analytics cookies</li></ul></li></ol>\n\n<p>BLANCA REAL uses the cookies listed below. Should other technologies be adopted, users will be informed accordingly.</p>\n\n<h2>Technical cookies</h2>\n<p>Essential for safe navigation and proper site operation. Enabled by default and cannot be refused.</p>\n<ul><li>Ensure safe, uninterrupted browsing.</li><li>Save user preferences about cookie settings.</li><li>Share content on social networks.</li></ul>\n\n<h2>Analytics cookies</h2>\n<p>Track and analyse user behaviour to improve the service.</p>\n<table><thead><tr><th>COOKIE</th><th>PURPOSE</th><th>OWNER</th></tr></thead><tbody><tr><td>fr</td><td>Statistics and customisation by Facebook. 90‑day duration.</td><td>Facebook</td></tr><tr><td>Test_cookie</td><td>Evaluates online marketing campaigns. DoubleClick/Google Ads.</td><td>Google</td></tr><tr><td>NID</td><td>Google services (Maps, search). Persistent cookie.</td><td>Google</td></tr><tr><td>_ga, _gat, _gid, _secure_3PAPSID, _secure_3PSID</td><td>Google Analytics anonymous identifier.</td><td>Google Analytics</td></tr><tr><td>Gat_gtag_UA</td><td>Campaign information linked to Analytics and AdWords.</td><td>Google</td></tr><tr><td>Optanonalertboxclosed, optanonconsent…</td><td>Stores and determines user cookie choices.</td><td>OneTrust</td></tr></tbody></table>\n\n<h2>Control and deletion of cookies</h2>\n<p>You may accept or reject cookies via the settings module or through your browser options. Restricting cookies may disable some interactive features.</p>\n<p>Guides for managing cookies in popular browsers:</p>\n<ul><li>Firefox: <a href=\"https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop\" target=\"_blank\" rel=\"noopener\">Instructions</a></li><li>Chrome: <a href=\"https://support.google.com/accounts/answer/61416\" target=\"_blank\" rel=\"noopener\">Instructions</a></li><li>Edge/Explorer: <a href=\"https://support.microsoft.com/windows/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09\" target=\"_blank\" rel=\"noopener\">Instructions</a></li><li>Safari: <a href=\"https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac\" target=\"_blank\" rel=\"noopener\">Instructions</a></li><li>Opera: <a href=\"https://help.opera.com/en/latest/web-preferences/#cookies\" target=\"_blank\" rel=\"noopener\">Instructions</a></li></ul>\n</div>"
+  },
+  "privacyPolicy": {
+    "pageTitle": "Privacy Policy | Balcones del Pinillo",
+    "content": "<h1>Privacy Policy</h1>\n\n<p>AZUGA SERVICIO GLOBAL INMOBILIARIO&nbsp;S.L. complies with Regulation&nbsp;(EU)&nbsp;2016/679 (GDPR) and Spanish Organic Law&nbsp;3/2018 on Personal Data Protection, guaranteeing all data‑subject rights.</p>\n\n<p>In accordance with Law&nbsp;34/2002 on Information Society Services and E‑Commerce, prior consent will be requested before sending commercial communications.</p>\n\n<p>Users are informed of the controller’s identity, processing purposes and the means to exercise their rights before providing any data.</p>\n\n<h2>1.&nbsp;Data Controller</h2>\n<p><strong>AZUGA SERVICIO GLOBAL INMOBILIARIO&nbsp;S.L.</strong><br>Tax ID&nbsp;B93153021<br>C/ Monte&nbsp;Calahonda&nbsp;10, 29649&nbsp;Mijas&nbsp;Costa (Málaga, Spain)<br>Tel.&nbsp;+34&nbsp;952&nbsp;599&nbsp;159 · <a href=\\\"mailto:info@blancareal.com\\\">info@blancareal.com</a><br>Commercial Registry of Málaga: Sheet&nbsp;MA‑00111198, Volume&nbsp;04941, Book&nbsp;3848</p>\n\n<h2>2.&nbsp;Purpose of Processing</h2>\n<p>To respond to your contact request or commercial relationship and, where expressly authorised, to send you commercial communications. Data are kept while the relationship persists.</p>\n\n<h2>3.&nbsp;Legal Basis</h2>\n<p>Contractual relationship for the main purpose and your consent for marketing. Data must be accurate and up‑to‑date; they will be erased or rectified when no longer necessary.</p>\n\n<h2>4.&nbsp;Recipients</h2>\n<p>No data will be transferred to third parties except legal obligation. No international transfers unless service providers in third countries offer adequate safeguards.</p>\n\n<h2>5.&nbsp;Data‑subject Rights</h2>\n<ul>\n  <li>Access, rectification and erasure.</li>\n  <li>Restriction and objection to processing.</li>\n  <li>Data portability.</li>\n  <li>Withdrawal of consent.</li>\n  <li>Not to be subject to automated decisions.</li>\n</ul>\n<p>Exercise these rights by written request (with ID copy) to the addresses above.</p>\n\n<h2>6.&nbsp;Complaints</h2>\n<p>You may lodge a complaint with the Spanish Data Protection Agency: <a href=\\\"https://www.aepd.es\\\" target=\\\"_blank\\\">www.aepd.es</a>.</p>\n\n<p><em>Use of this Portal implies acceptance of these terms. Please review this policy periodically; it may change.</em></p>"
   }
-  }
+}
