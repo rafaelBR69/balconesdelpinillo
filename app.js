@@ -247,10 +247,10 @@ window.addEventListener('load', () => {
 
   /* rutas a los PDF por planta */
   const PLANOS = {
-    bajo    : 'planos/plano-bajo.pdf',
-    primero : 'planos/plano-primero.pdf',
-    segundo : 'planos/plano-segundo.pdf',
-    tercero : 'planos/plano-tercero.pdf'
+    bajo    : '/planos/plano-bajo.pdf',
+    primero : '/planos/plano-primero.pdf',
+    segundo : '/planos/plano-segundo.pdf',
+    tercero : '/planos/plano-tercero.pdf'
   };
 
   function mostrarInfo (viviendas, key) {
