@@ -341,5 +341,103 @@ window.addEventListener('load', () => {
       });
     });
   }
-
 });
+
+/*════════ PROMO: lista + contador al hacer scroll ═════════════════=*/
+
+// ---- 1. Config de los ítems --------------------------------------
+const PROMO_ITEMS = [
+  { key: 'units',     icon: 'edificio.webp'   },
+  { key: 'parking',   icon: 'parking.webp'    },
+  { key: 'beds',      icon: 'dormitorio.webp', extra: 'icon-dorm' },
+  { key: 'plot',      icon: 'plano.webp',      extra: 'icon-plano' },
+  { key: 'sunnydays', icon: 'tiempo.webp'     }
+];
+
+// ---- 2. Construye la lista (con “0” inicial) ---------------------
+function buildPromoList() {
+  const box = document.getElementById('promoStats');
+  if (!box) return;
+
+  const ul = document.createElement('ul');
+
+  PROMO_ITEMS.forEach(({ key, icon, extra = '' }) => {
+    ul.insertAdjacentHTML('beforeend', `
+      <li class="promo-pair" data-key="${key}">
+        <img src="/images/iconos/${icon}" class="promo-icon ${extra}" alt="">
+        <span id="${key}-count" class="promo-count">0</span>
+        <span class="promo-label"></span>
+        
+      </li>`);
+  });
+
+  box.appendChild(ul);
+}
+
+  // ---- 3. Contador robusto ----------------------------------------
+  function animateCount(selector, finalValue, duration = 800) {
+    const el = document.querySelector(selector);
+    if (!el || !Number.isFinite(finalValue)) return;
+
+    const start = performance.now();
+    const fmt   = new Intl.NumberFormat('es-ES');
+
+    const tick = now => {
+      const p = Math.min(1, (now - start) / duration);
+      el.textContent = fmt.format(Math.round(finalValue * p));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // ---- 4. Traduce label + anima valor ------------------------------
+  function initPromoCounters() {
+    PROMO_ITEMS.forEach(({ key }) => {
+      const data = i18next.t(`home.promo.${key}`, { returnObjects: true });
+      if (!data || typeof data !== 'object') return;
+
+      document.querySelector(`.promo-pair[data-key="${key}"] .promo-label`)
+              .textContent = data.label;
+
+      const n = Number(String(data.value).replace(/[^\d.-]/g, ''));
+      if (Number.isFinite(n)) animateCount(`#${key}-count`, n, 800);
+    });
+  }
+
+  // ---- 5. IO: sólo dispara la animación ----------------------------
+  function observePromoCounters() {
+    const section = document.getElementById('promoStats');
+    if (!section) return;
+
+    const io = new IntersectionObserver((entries, obs) => {
+      const first = entries[0];
+      if (first.isIntersecting) {
+        console.log('🟢 promo visible: %', (first.intersectionRatio * 100).toFixed(1));
+        initPromoCounters();     // traduce + anima
+        obs.disconnect();        // sólo una vez
+      }
+    }, {
+      threshold: 0.10            // ← 10 % del elemento visible
+      // Si prefieres la otra fórmula:
+      // threshold: 0,
+      // rootMargin: '0px 0px -90% 0px'
+    });
+
+    io.observe(section);
+  }
+
+  /* ---------- Orquestación de la promo ---------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const startPromo = () => {
+    buildPromoList();        // crea el <ul> con los “0”
+    observePromoCounters();  // espera al 10 % de visibilidad y anima
+  };
+
+  if (i18next.isInitialized) {
+    startPromo();            // i18next ya estaba listo
+  } else {
+    i18next.on('initialized', startPromo); // se ejecutará cuando acabe
+  }
+});
+
+

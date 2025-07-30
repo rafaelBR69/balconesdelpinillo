@@ -6,7 +6,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: "montserrat", sans-serif;
+  font-family:var(--ff-body);
   overflow-x: hidden;
 }
 body {
@@ -28,7 +28,6 @@ body {
   --field-bord    : #c0905c8e;  /* color del borde                */
   --field-size    : 1.55rem;  /* tamaño de fuente en los campos */
   --card-top: 12%;
-  --header-h: 100px;
   --ff-display : 'Cormorant Garamond', serif;   /* títulos “elegantes”   */
   --ff-body    : 'Montserrat', sans-serif;      /* texto general / UI    */
   --fs-nav     : 1.6rem;   /* tamaño enlaces / idioma                */
@@ -792,6 +791,7 @@ area:focus{
   ① Caja del plano y títulos
 ──────────────────────────────────────────────*/
 .plan-box{
+  max-width:500px;
   position:relative;            /* referencia para elementos absolutos */
   display:inline-block;         /* se adapta al tamaño del plano       */
 }
@@ -1095,4 +1095,137 @@ footer .social a{
     margin:2rem auto 0;
     left:auto;
   }
+}
+
+/* ——————————————————————————————
+   HERO  “Proceso de compra”
+   ——————————————————————————————*/
+.process-hero-img{
+  /* la anchura que quieras mostrar */
+  width: 70%;          /* cámbialo a 60 %, 80 %… según te convenga */
+  max-width: 1200px;   /* tope en desktop muy ancho */
+  height: auto;
+  display: block;
+  margin: var(--header-h) auto 4rem;   /* respeta la barra fija y centra */
+}
+
+/* ——————————————————————————————
+   FAQ • tipografías propias
+   ——————————————————————————————*/
+
+/* 1) Preguntas (summary) */
+.faq summary{
+  font-family: var(--ff-display);   /* título “elegante” */
+  font-size  : 2.2rem;
+  font-weight: 470;                 /* semibold ligero   */
+  letter-spacing: .2px;
+  color:#5C4033;
+  cursor:pointer;
+  padding: 1.2rem 1.5rem;
+}
+
+/* quitamos el ▶ predeterminado */
+.faq summary::-webkit-details-marker{display:none}
+
+/* 2) Respuestas (p) */
+.faq p{
+  font-family: var(--ff-body);      /* texto general     */
+  font-size  : 1.8rem;
+  font-weight: 200;
+  color:#4c362a;
+  padding: 0 1.5rem 1.5rem;
+  line-height: 1.75;
+}
+
+/* 3) Tarjeta abierta: fondo crema opcional */
+.faq details[open] summary{
+  background:#f4ebdd;
+}
+
+/* 4) Caja general del acordeón (ancho + separación) */
+.faq{
+  max-width: 1000px;
+  margin   : 4rem auto;
+  padding  : 0 1rem;
+}
+
+/* 5) Borde y radio de cada “card” */
+.faq details{
+  border: 1px solid #c08f5c8e;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+}
+
+/*════════  Cajetín sobre la foto (hero)  ══════════════════════*/
+.promo-info{
+  position:absolute;
+  left:4%;
+  bottom:3%;
+
+  font-family:var(--ff-display);
+  font-size:2.3rem;
+  font-weight:200;
+  line-height:1.4;
+  color:#F4EBDD;
+  background:transparent;
+  z-index:10;
+}
+
+.promo-info ul{
+  display:flex;
+  flex-wrap:wrap;
+  column-gap:3rem;   /* espacio horizontal mayor  */
+  row-gap:1.2rem;    /* espacio vertical cuando salte a 2ª fila */
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+
+/* pareja número + icono */
+.promo-pair{
+  display:inline-flex;
+  align-items:baseline;         /* línea de base compartida */
+  gap:.35rem;
+}
+
+/* número grande */
+.promo-value{
+  font-size:2.2em;
+  line-height:1;
+}
+
+/* ---- ICONOS ------------------------------------------------*/
+.promo-icon{
+  width:2.75em;                 /* antes 1 em → un poco más grande */
+  height:2.75em;
+  object-fit:contain;
+  transform:translateY(-0.05em);/* ajuste fino general */
+}
+
+/* ajuste individual */
+.icon-dorm  { 
+  position:relative;      /*  ← necesario para top/bottom  */
+  top: .45em !important;
+ }  /* baja  ≈ 2‑3 px */
+.icon-plano { 
+  position:relative;      /*  ← necesario para top/bottom  */
+  top: .25em !important;
+ }  /* baja igual     */
+
+/* versión móvil */
+@media (max-width:600px){
+  .promo-info{
+    left:50%;
+    bottom:8%;
+    transform:translateX(-50%);
+    font-size:1.8rem;
+    text-align:center;
+  }
+}
+/* número grande */
+.promo-count{          /* antes .promo-value */
+  font-size:2.6em;     /* prueba 2.4‑2.8em según tu diseño */
+  line-height:1;
+  font-weight:400;     /* opcional: un poco más grueso */
 }
