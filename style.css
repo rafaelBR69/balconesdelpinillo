@@ -1116,7 +1116,7 @@ footer .social a{
 /* 1) Preguntas (summary) */
 .faq summary{
   font-family: var(--ff-display);   /* título “elegante” */
-  font-size  : 2.2rem;
+  font-size  : 2.5rem;
   font-weight: 470;                 /* semibold ligero   */
   letter-spacing: .2px;
   color:#5C4033;
@@ -1133,7 +1133,7 @@ footer .social a{
   font-size  : 1.8rem;
   font-weight: 200;
   color:#4c362a;
-  padding: 0 1.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem;
   line-height: 1.75;
 }
 
@@ -1142,9 +1142,16 @@ footer .social a{
   background:#f4ebdd;
 }
 
+/* Sangrado para todas las listas del acordeón FAQ */
+.faq ul{
+  padding-left: 2.5rem;   /* ajústalo a tu gusto */
+  margin: 0;              /* quita margen por defecto */
+}
+
+
 /* 4) Caja general del acordeón (ancho + separación) */
 .faq{
-  max-width: 1000px;
+  max-width: 1200px;
   margin   : 4rem auto;
   padding  : 0 1rem;
 }
