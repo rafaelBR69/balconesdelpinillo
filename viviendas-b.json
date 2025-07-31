@@ -7,7 +7,7 @@
     "estado": "disponible",
     "terraza": 20,
     "orientacion": "NO",
-    "pdf": "docs/a-bajo-1.pdf"
+    "pdf": "/planos/20A.pdf"
   },
 
   "bBajo2": {
@@ -18,7 +18,7 @@
     "estado": "disponible",
     "terraza": 20,
     "orientacion": "NO",
-    "pdf": "docs/a-bajo-2.pdf"
+    "pdf": "/planos/20B.pdf"
   },
 
   "bBajo3": {
@@ -29,7 +29,7 @@
     "estado": "disponible",
     "terraza": 20,
     "orientacion": "NO",
-    "pdf": "docs/a-bajo-3.pdf"
+    "pdf": "/planos/20C.pdf"
   },
 
   "bPrim1": {
@@ -40,7 +40,7 @@
     "estado": "disponible",
     "terraza": 10,
     "orientacion": "NO",
-    "pdf": "docs/a-primero-1.pdf"
+    "pdf": "/planos/21A.pdf"
   },
 
   "bPrim2": {
@@ -51,7 +51,7 @@
     "estado": "disponible",
     "terraza": 10,
     "orientacion": "NO",
-    "pdf": "docs/a-primero-2.pdf"
+    "pdf": "/planos/21B.pdf"
   },
 
   "bPrim3": {
@@ -62,7 +62,7 @@
     "estado": "disponible",
     "terraza": 10,
     "orientacion": "NO",
-    "pdf": "docs/a-primero-3.pdf"
+    "pdf": "/planos/21C.pdf"
   },
 
   "bSeg1": {
@@ -73,7 +73,7 @@
     "estado": "disponible",
     "terraza": 20,
     "orientacion": "NO",
-    "pdf": "docs/a-segundo-1.pdf"
+    "pdf": "/planos/22A.pdf"
   },
 
   "bSeg2": {
@@ -84,7 +84,7 @@
     "estado": "disponible",
     "terraza": 20,
     "orientacion": "NO",
-    "pdf": "docs/a-segundo-2.pdf"
+    "pdf": "/planos/22B.pdf"
   },
 
   "bSeg3": {
@@ -95,7 +95,7 @@
     "estado": "disponible",
     "terraza": 20,
     "orientacion": "NO",
-    "pdf": "docs/a-segundo-3.pdf"
+    "pdf": "/planos/22C.pdf"
   },
 
   "bTer1": {
@@ -106,6 +106,6 @@
     "estado": "disponible",
     "terraza": 30,
     "orientacion": "NO",
-    "pdf": "docs/a-tercero-1.pdf"
+    "pdf": "/planos/23A.pdf"
   }
 }
