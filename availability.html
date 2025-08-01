@@ -60,20 +60,26 @@
       </div>
 
       <!-- 1 ▸ imagen + mapa (Draw-Attention) -->
-      <img src="images/home.webp"
+      <img src="images/home1.webp"
           id="avail-img"
           usemap="#avail-map"
           alt="Plano de disponibilidad">
 
+      <!-- Mapa de disponibilidad (A + B) actualizado -->
       <map name="avail-map">
-        <area shape="poly"
-              coords="-1,353,112,353,112,316,356,321,356,351,508,344,510,365,554,370,557,590,368,827,-1,829,-1,567,-1,467,-1,460"
-              href="bloque-a.html"
-              data-key="bloqueA">
-        <area shape="poly"
-              coords="903,363,898,591,1037,792,1488,789,1492,388,1465,351,1316,347,1314,312,1188,316,1184,347,942,343"
+
+        <!-- ▸ BLOQUE A ◂ -->
+        <area shape="poly" data-key="bloqueA"
               href="bloque-b.html"
-              data-key="bloqueB">
+              coords="554,333,556,573,782,611,919,556,919,442,942,434,939,400,919,401,917,375,928,366,927,330,904,332,905,288,763,279,676,286,677,325,642,324"
+              alt="Bloque A" title="Bloque 2">
+
+        <!-- ▸ BLOQUE B ◂ -->
+        <area shape="poly" data-key="bloqueB"
+              href="bloque-a.html"
+              coords="936,478,936,353,947,352,944,283,1033,283,1033,249,1096,245,1227,249,1227,279,1227,299,1261,300,1258,459,1243,494"
+              alt="Bloque B" title="Bloque 1">
+
       </map>
 
     </section>
