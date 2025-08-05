@@ -150,7 +150,7 @@ window.addEventListener('load', () => {
   }
 
   /*═════════════  2 · PÁGINAS  BLOQUE A / B  ═════════════*/
-  const CANVAS_SIZE = 1024;                       // tamaño deseado
+  const CANVAS_SIZE = 1024;                // tamaño máximo permitido
 
   const $section = $('.section_1--availability');
   const jsonURL  = $section.data('json');
@@ -163,65 +163,64 @@ window.addEventListener('load', () => {
     .fail(() => console.error('[JSON] No se pudo leer', jsonURL));
 
   /* ---------------- MAPSTER del plano del bloque ---------------- */
-  function iniciarMapster(viviendas) {
+  function iniciarMapster (viviendas) {
 
     const amarillo = 'FFC300';
     const rojo     = 'B63E3E';
 
-    /* Opciones por-área + vendidos */
+    /* Opciones por-área + vendidos -------------------------------- */
     const vendidos = [];
     const areaOpts = Object.entries(viviendas).map(([key, v]) => {
-      if (v.estado === 'reservado') {
+      if (v.estado === 'reservado') {            // —RESERVADO
         return {
           key,
           render_highlight: { fillColor: amarillo, fillOpacity: 0.55,
-                              stroke: true, strokeColor: amarillo, strokeWidth: 3 },
-          render_select  : { fillColor: amarillo, fillOpacity: 0.45,
-                              stroke: true, strokeColor: amarillo, strokeWidth: 3 }
+                              stroke:true, strokeColor: amarillo, strokeWidth:3 },
+          render_select   : { fillColor: amarillo, fillOpacity: 0.45,
+                              stroke:true, strokeColor: amarillo, strokeWidth:3 }
         };
       }
-      if (v.estado === 'vendido') {
+      if (v.estado === 'vendido') {              // —VENDIDO
         vendidos.push(key);
         return {
           key,
-          isSelectable  : false,
-          staticState   : true,
+          isSelectable   : false,
+          staticState    : true,
           render_highlight: { fillColor: rojo, fillOpacity: 0.55,
-                              stroke: true, strokeColor: rojo, strokeWidth: 3 },
-          render_select  : { fillColor: rojo, fillOpacity: 0.55,
-                              stroke: true, strokeColor: rojo, strokeWidth: 3 }
+                              stroke:true, strokeColor: rojo, strokeWidth:3 },
+          render_select   : { fillColor: rojo, fillOpacity: 0.55,
+                              stroke:true, strokeColor: rojo, strokeWidth:3 }
         };
       }
-      /* disponible */
+      /* —DISPONIBLE— */
       return {
         key,
         render_highlight: { fillColor: base, fillOpacity: 0.55,
-                            stroke: true, strokeColor: base, strokeWidth: 3 },
-        render_select  : { fillColor: base, fillOpacity: 0.35,
-                            stroke: true, strokeColor: base, strokeWidth: 3 }
+                            stroke:true, strokeColor: base, strokeWidth:3 },
+        render_select   : { fillColor: base, fillOpacity: 0.35,
+                            stroke:true, strokeColor: base, strokeWidth:3 }
       };
     });
 
-    let currentSelection = null;     // recuerdas la última selección
+    let currentSelection = null;          // recuerdas la última selección
 
     $img.mapster({
-      /* tamaño base 1024 × 1024 */
-      width      : CANVAS_SIZE,
-      height     : CANVAS_SIZE,
-      wrapClass  : 'plan-wrapper',   // 👈  NUEVA CLASE PARA CENTRAR
+      /* 🔥 ya NO fijamos width/height: Mapster tomará el tamaño real
+        de la imagen y luego la reduciremos con resize() */
+      wrapClass      : 'plan-wrapper',
 
-      mapKey        : 'data-key',
-      singleSelect  : false,
-      clickNavigate : false,
-      scaleMap      : true,
-      areas         : areaOpts,
+      mapKey         : 'data-key',
+      singleSelect   : false,
+      clickNavigate  : false,
+      scaleMap       : true,
+      areas          : areaOpts,
 
       render_select   : { fillColor: base, fillOpacity: 0.35,
-                          stroke: true, strokeColor: border, strokeWidth: 3 },
+                          stroke:true, strokeColor: border, strokeWidth:3 },
       render_highlight: { fillColor: base, fillOpacity: 0.55,
-                          stroke: true, strokeColor: border, strokeWidth: 3 },
+                          stroke:true, strokeColor: border, strokeWidth:3 },
 
-      onClick(area) {
+      onClick (area) {
         const v = viviendas[area.key];
         if (v && v.estado === 'vendido') { return false; }
 
@@ -234,28 +233,26 @@ window.addEventListener('load', () => {
         currentSelection = area.key;
 
         mostrarInfo(viviendas, area.key);
-        return false;                // evita scroll
+        return false;                           // evita scroll
       },
 
-      onConfigured() {
+      onConfigured () {
         if (vendidos.length) {
           $img.mapster('set', true, vendidos.join(','));
         }
-        /* asegura el wrapper en 1024 × 1024 al arrancar */
-        $img.mapster('resize', CANVAS_SIZE, CANVAS_SIZE, 0);
+        ajustarPlano();                        // ⬅️  primer ajuste al arrancar
       }
     });
 
-    /* reescala al cambiar tamaño de la ventana */
-    $(window).on('resize', () => {
-      /* no superar 1024 px pero adaptarse si el contenedor es más estrecho */
-      const w = Math.min(CANVAS_SIZE, $img.parent().width());
-      $img.mapster('resize', w, w, 0);    // alto = ancho → cuadrado
-    });
+    /* ───── Función de ajuste + oyente de ‘resize’ ───── */
+    function ajustarPlano () {
+      const w = Math.min(CANVAS_SIZE, $img.parent().width()); // nunca >1024
+      $img.mapster('resize', w, w, 0);       // alto = ancho → cuadrado
+    }
+    $(window).on('resize', ajustarPlano);    // se ejecuta al rotar/estirar
   }
 
   /* ------- 3 · Tarjeta de información + PDF + contador ------- */
-
   function mostrarInfo (viviendas, key) {
     const d = viviendas[key];
     if (!d) {
@@ -286,7 +283,7 @@ window.addEventListener('load', () => {
       </div>
     `);
 
-    /* -------- mini-vista del PDF -------- */
+    /* mini-vista del PDF */
     if (d.pdf) {
       renderPdfPreview(d.pdf, $('#plano-preview'));
     } else {
@@ -297,32 +294,32 @@ window.addEventListener('load', () => {
     animatePrice('#price-value', d.precio, 800, 700000);
   }
 
-  /* contador startValue → finalValue  */
+  /* -------- contador startValue → finalValue -------- */
   function animatePrice(selector, finalValue, duration, startValue = 0) {
     const el    = document.querySelector(selector);
     const start = performance.now();
-    const delta = finalValue - startValue;           // diferencia a recorrer
+    const delta = finalValue - startValue;
 
     const fmt = new Intl.NumberFormat('es-ES', {
       style: 'currency',
       currency: 'EUR'
     });
 
-    function tick(now) {
-      const p = Math.min(1, (now - start) / duration);     // 0 → 1
-      const current = startValue + delta * p;              // valor intermedio
-      el.textContent = fmt.format(Math.round(current));    // pinta el nº
-      if (p < 1) requestAnimationFrame(tick);              // siguiente frame
+    function tick (now) {
+      const p       = Math.min(1, (now - start) / duration); // 0 → 1
+      const current = startValue + delta * p;
+      el.textContent = fmt.format(Math.round(current));
+      if (p < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
   }
 
-  /* primera página del PDF a mini‑canvas */
-  function renderPdfPreview(url, $container){
+  /* -------- primera página del PDF a mini-canvas -------- */
+  function renderPdfPreview (url, $container) {
     $container.empty();
-    pdfjsLib.getDocument(url).promise.then(pdf=>{
-      pdf.getPage(1).then(page=>{
-        const scale = 0.05;
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+      pdf.getPage(1).then(page => {
+        const scale    = 0.05;
         const viewport = page.getViewport({ scale });
         const canvas   = $('<canvas>').get(0);
         const ctx      = canvas.getContext('2d');
@@ -331,14 +328,15 @@ window.addEventListener('load', () => {
         canvas.height = viewport.height;
         canvas.style.cursor = 'pointer';
         canvas.style.border = '1px solid #ccc';
-        canvas.addEventListener('click', () =>
-          window.open(url, '_blank'));
+        canvas.addEventListener('click', () => window.open(url, '_blank'));
 
         $container.append(canvas);
         page.render({ canvasContext: ctx, viewport });
       });
     });
   }
+
+
 });
 
 /*════════ PROMO: lista + contador al hacer scroll ═════════════════=*/

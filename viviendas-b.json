@@ -1,6 +1,6 @@
 {
   "bBajo1": {
-    "nombre": "Bajo A",
+    "nombre": "1. 0. A",
     "habit": 3,
     "m2": 92.29,
     "precio": 525000,
@@ -11,7 +11,7 @@
   },
 
   "bBajo2": {
-    "nombre": "Bajo B",
+    "nombre": "1. 0. B",
     "habit": 2,
     "m2": 82.71,
     "precio": 455000,

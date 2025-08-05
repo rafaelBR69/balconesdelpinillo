@@ -69,6 +69,7 @@ nav{
   height: 160px;                 /* ajusta aquí el tamaño visible */
   width : auto;
   object-fit: contain;
+  margin-top: 2.2rem;
 }
 
 /* ---------- MENÚ DE ENLACES ---------- */
@@ -1221,16 +1222,7 @@ footer .social a{
   top: .25em !important;
  }  /* baja igual     */
 
-/* versión móvil */
-@media (max-width:600px){
-  .promo-info{
-    left:50%;
-    bottom:8%;
-    transform:translateX(-50%);
-    font-size:1.8rem;
-    text-align:center;
-  }
-}
+
 /* número grande */
 .promo-count{          /* antes .promo-value */
   font-size:2.6em;     /* prueba 2.4‑2.8em según tu diseño */
@@ -1238,11 +1230,14 @@ footer .social a{
   font-weight:400;     /* opcional: un poco más grueso */
 }
 
-/* centra horizontalmente cualquier wrapper creado por Mapster
-   que lleve la clase plan-wrapper */
+.plan-wrapper canvas{
+  pointer-events: none !important;
+}
+
+/* El contenedor que crea Mapster (div.plan-wrapper) debe ser fluido */
 .plan-wrapper{
-  margin: 0 auto;           /* centrado con márgenes automáticos */
-  position: relative;       /* Mapster ya lo pone, pero lo reiteramos */
+  width: 100% !important;     /* se adapta al ancho del móvil       */
+  margin: 0 !important;
 }
 /* ——— Plano a 1024 px ——— */
 .plan-box{
