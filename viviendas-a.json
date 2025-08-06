@@ -67,7 +67,7 @@
 
   "aSeg1": {
     "nombre": "1. 2. A",
-    "habit": 3,
+    "habit": 2,
     "m2": 81.86,
     "precio": 450000,
     "estado": "disponible",
@@ -89,7 +89,7 @@
 
   "aSeg3": {
     "nombre": "1. 2. C",
-    "habit": 3,
+    "habit": 2,
     "m2": 81.86,
     "precio": 450000,
     "estado": "disponible",
