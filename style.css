@@ -30,8 +30,8 @@ body {
   --card-top: 12%;
   --ff-display : 'Cormorant Garamond', serif;   /* títulos “elegantes”   */
   --ff-body    : 'Montserrat', sans-serif;      /* texto general / UI    */
-  --fs-nav     : 1.6rem;   /* tamaño enlaces / idioma                */
-  --fs-btn     : 1.5rem;   /* tamaño botón “Contact”                 */
+  --fs-nav     : 2.1rem;   /* tamaño enlaces / idioma                */
+  --fs-btn     : 2.0rem;   /* tamaño botón “Contact”                 */
   --fw-nav     : 550; 
 }
 
@@ -209,13 +209,13 @@ nav {
   font-family: var(--ff-display);
   font-weight: 530;
   color: #F4EBDD;
-  text-shadow: 2px 2px 6px #5C4033;
+  text-shadow: 1px 1px 2px #ffffff;
 }
 
 .bg_text2 {
   font-family: var(--ff-body);
   color: #F4EBDD;
-  text-shadow: 2px 2px 6px #5C4033;
+  text-shadow: 1px 1px 2px #ffffff;
   font-weight: 300;
 
 }
@@ -235,7 +235,7 @@ nav {
 }
 
 .bg_div :last-child {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   margin-top: 0.5rem;
   animation: slideinBottom 4s ease;
 }
