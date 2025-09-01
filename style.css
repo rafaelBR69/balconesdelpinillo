@@ -85,8 +85,10 @@ nav{
   font-size  : var(--fs-nav);
   font-weight: var(--fw-nav);
   color: var(--brand-color);
+  font-family: var(--ff-body);
   text-decoration: none;
   transition: opacity .25s;
+  letter-spacing: 1.5px;
 }
 .nav-links a:hover{ opacity:.8; }
 .nav-links a:active{ outline: none; }
@@ -201,20 +203,19 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0, 0.2);
   z-index: 1;
   pointer-events: none;
 }
 .bg_text1{
   font-family: var(--ff-display);
   font-weight: 530;
-  color: #F4EBDD;
+  color: #ffffff;
   text-shadow: 1px 1px 2px #ffffff;
 }
 
 .bg_text2 {
   font-family: var(--ff-body);
-  color: #F4EBDD;
+  color: #ffffff;
   text-shadow: 1px 1px 2px #ffffff;
   font-weight: 300;
 
@@ -468,7 +469,7 @@ nav {
   margin-bottom: 6rem;
 }
 .blog-header h1 {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   padding-top: 8rem;
   font-size: 3.6rem;
   color: #5C4033;
@@ -633,21 +634,21 @@ footer .legal-links a:visited{
 }
 
 .modal__title  {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 300;
   font-size: 2.2rem;
   color:#5C4033; 
   margin-bottom:2rem; 
   }
 .modal__form   { display:flex; flex-direction:column; gap:1.2rem; }
-.modal__form label  { font-size:1.4rem; color:#5C4033; display:flex; flex-direction:column; gap:.4rem; }
+.modal__form label  { font-size:1.4rem; color:#5C4033; display:flex; flex-direction:column; gap:.4rem; font-family: var(--ff-body);}
 .modal__form input,
 .modal__form textarea {
   padding:.8rem 1rem;
   border:2px solid #5C4033;
   border-radius:8px;
   font-size:1.4rem;
-  background:#fff;
+  background:#ffffff;
 }
 .modal__send {
   background:#5C4033;
@@ -701,10 +702,10 @@ footer .legal-links a:visited{
 
 /*──────── Título ────────*/
 .hero-form__title {
-  font-family: var(--ff-display); 
-  font-size: 2.9rem;        /* ← TAMAÑO de fuente del título   */
-  font-weight: 600;
-  color: #F4EBDD;           /* ← COLOR del título              */
+  font-family: var(--ff-body); 
+  font-size: 3.3rem;        /* ← TAMAÑO de fuente del título   */
+  font-weight: 500;
+  color: #ffffff;           /* ← COLOR del título              */
   text-shadow: 2px 2px 6px #5C4033;
   margin: 0 0 1.2rem;
   text-align: center;
@@ -732,8 +733,8 @@ footer .legal-links a:visited{
 
 .hero-form label {
   font-family: var(--ff-body); 
-  font-size: 1.8rem;      /* ← TAMAÑO de letra  (ajústalo)  */
-  color: #F4EBDD;         /* ← COLOR del texto (cámbialo)   */
+  font-size: 2.2rem;      /* ← TAMAÑO de letra  (ajústalo)  */
+  color: #ffffff;         /* ← COLOR del texto (cámbialo)   */
   font-weight: 450;       /* opcional: negrita              */
   text-shadow: 1px 1px 3px #5C4033; /* opcional: sombra sutil */
 }
@@ -772,7 +773,7 @@ footer .legal-links a:visited{
 /* solo cambia el color del texto */
 .section_1--availability .bg_text1,
 .section_1--availability .bg_text2{
-  color: #F4EBDD;
+  color: #ffffff;
 }
 
 area:focus{
@@ -806,7 +807,7 @@ area:focus{
   transform:translate(-50%,-50%);
   text-align:center;
 }
-.bg_text1, .bg_text2{ color:#F4EBDD; }
+
 
 /*──────────────────────────────────────────────
   ② Bloque de texto plano (no empuja a nadie)
@@ -1117,7 +1118,7 @@ footer .social a{
 
 /* 1) Preguntas (summary) */
 .faq summary{
-  font-family: var(--ff-display);   /* título “elegante” */
+  font-family: var(--ff-body);   /* título “elegante” */
   font-size  : 2.5rem;
   font-weight: 470;                 /* semibold ligero   */
   letter-spacing: .2px;
@@ -1171,7 +1172,7 @@ footer .social a{
   left:4%;
   bottom:3%;
 
-  font-family:var(--ff-display);
+  font-family:var(--ff-body);
   font-size:2.3rem;
   font-weight:200;
   line-height:1.4;
@@ -1243,4 +1244,14 @@ footer .social a{
 .plan-box{
   max-width: 1024px;   /* o “none” si prefieres que adopte lo que mida la imagen */
   width: 1024px;       /* opcional, fija ancho explícito */
+}
+
+.lead-success { 
+  max-width: 920px; 
+  font-family: var(--ff-body);
+  color: #ffffff;
+  font-size: 3.3rem;
+  margin: 0 auto; 
+  padding: 16px 0; 
+  font-weight: 600; 
 }

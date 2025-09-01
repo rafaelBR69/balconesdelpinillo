@@ -65,44 +65,75 @@ if (modal) {
   setTimeout(openModal, TIME_DELAY);
 }
 
-/* ==== Envío a Google Sheets para TODOS los formularios data‑lead ==== */
+/* ==== Envío a Google Sheets + mensaje inline (sin card) ==== */
 document.querySelectorAll('form[data-lead]').forEach(form => {
+  if (form.dataset.bound) return;     // evita doble binding si el script carga dos veces
+  form.dataset.bound = '1';
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    e.stopImmediatePropagation();     // impide que otros listeners de submit se ejecuten
 
-    /* ➊ Recogemos campos + honeypot ---------------------------------- */
     const fd = new FormData(form);
 
-    /* Honeypot: si el campo invisible “website” NO está vacío ⇒ bot */
-    if (fd.get('website')?.trim()) {           // 👈
-      console.warn('[Spam‑bot] envío bloqueado'); // 👈
-      return;                                  // 👈  abortamos envío
+    // Honeypot: si está relleno, abortar silenciosamente
+    if ((fd.get('website') || '').trim()) return;
+    fd.delete('website');
+
+    // Desactivar botón y mostrar "Enviando…"
+    const btn = form.querySelector('button[type="submit"]');
+    const originalBtn = btn?.textContent;
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = (window.t?.('popup.sending')) || 'Enviando…';
     }
-    fd.delete('website');                      // 👈  ya no lo necesitamos
 
+    // Datos + origen
     const data = Object.fromEntries(fd.entries());
-
-    /* ➋ Fuente de la solicitud (para la hoja) */
     data.origin = form.dataset.origin || 'Formulario Web';
 
     try {
-      /* cierra pop‑up o muestra gracias, si existen */
-      if (typeof closeModal === 'function') closeModal();
-      if (typeof openThank  === 'function') openThank();
-
-      /* ➌ Envío sin CORS a Google Sheets */
       await fetch(
-        'https://script.google.com/macros/s/AKfycbxlBgB28gJM1LyutP76PLlsJy9dWhuZTgwFwT3fYZrEH4CBZu0UQ8peW3hkz8Nnsukjqw/exec',
+        'https://script.google.com/macros/s/AKfycby3PQdKTs3PXdPnGGCyDAP0NKCzjPJTIRJxyChAf3aOxNgWO5DvClKjNRINOSPhA6iHFg/exec',
         { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) }
       );
 
-      form.reset();          // limpia el formulario
+      // Mensaje de confirmación simple y permanente
+      const inline = document.createElement('p');
+      inline.className = 'lead-success';
+      inline.setAttribute('role', 'status');
+      inline.setAttribute('aria-live', 'polite');
+      // Si quieres personalizar el texto por formulario, añade data-success-text="..."
+      const custom = form.dataset.successText;
+      inline.setAttribute('data-i18n', 'contact.thanksInline');
+      inline.textContent = custom || '¡Datos enviados! En breve un comercial te contactará.';
+
+      form.replaceWith(inline); // quita el formulario y deja el texto
+
+      // Reaplicar i18n si lo usas en runtime
+      if (window.i18next?.isInitialized && window.applyI18n) {
+        window.applyI18n();
+      }
     } catch (err) {
       console.error(err);
-      alert('Ups, no se pudo enviar. Inténtalo de nuevo.');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = originalBtn || 'Enviar';
+      }
+      showInlineAlert(form, 'No se pudo enviar. Inténtalo de nuevo o escríbenos.');
     }
   });
 });
+
+function showInlineAlert(container, msg) {
+  let box = container.querySelector?.('.form-alert');
+  if (!box) {
+    box = document.createElement('div');
+    box.className = 'form-alert';
+    container.prepend(box);
+  }
+  box.textContent = msg;
+}
 
 /* ──────────────────────────────
    4. Draw‑Attention · Image‑Mapster
