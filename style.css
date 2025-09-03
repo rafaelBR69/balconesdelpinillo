@@ -132,13 +132,6 @@ nav{
   cursor       : pointer;
 }
 
-/* ---------- ESTADOS GENERALES ---------- */
-.nav-links a,
-.btn .sign_up,
-#langSwitcher{
-  /* garantizamos herencia de fuente base */
-  font-family: "Montserrat", sans-serif;
-}
 
 /* ---------- UTILIDAD: evitar scroll cuando el menú móvil está abierto ---------- */
 body.nav-open{ overflow:hidden; }
@@ -160,8 +153,7 @@ nav {
 }
 
 /* estado normal y visitado */
-.nav-links a,
-.nav-links a:visited,
+
 .btn .sign_up,
 .btn .sign_up:visited {
   color: #5C4033;       /* tu marrón original */
